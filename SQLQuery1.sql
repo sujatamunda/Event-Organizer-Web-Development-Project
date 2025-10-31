@@ -1,1 +1,0 @@
-﻿select ISNULL(MAX(CONVERT(int,RIGHT(BookingNo,4))),0)+1 bookingNo from Bookings where BookingNo like '%2025%'
