@@ -1,0 +1,177 @@
+﻿@* @model EventOrganizer.Models.ExploreViewModel
+
+<div class="row">
+    <!-- Venues Section -->
+    <h4 class="mt-4 mb-3">Venues</h4>
+    @if (Model.Venues != null && Model.Venues.Any())
+    {
+        @foreach (var venue in Model.Venues)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="~/images/venues/@venue.ImageUrl" class="card-img-top" style="height: 200px; object-fit: cover;" alt="@venue.VenueName" />
+                    <div class="card-body">
+                        <h5 class="card-title">@venue.VenueName</h5>
+                        <p class="card-text">Capacity: @venue.Capacity</p>
+                        <p class="card-text">Cost: ₹@(venue.Cost > 0 ? venue.Cost.ToString() : "Not Available")</p>
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#venueModal_@venue.VenueId">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Venue -->
+            <div class="modal fade" id="venueModal_@venue.VenueId" tabindex="-1" aria-labelledby="venueModalLabel_@venue.VenueId" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="venueModalLabel_@venue.VenueId">@venue.VenueName</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="~/images/venues/@venue.ImageUrl" class="img-fluid rounded mb-3" alt="@venue.VenueName" />
+                            <p><strong>Location:</strong> @venue.Location</p>
+                            <p><strong>Capacity:</strong> @venue.Capacity</p>
+                            <p><strong>Cost:</strong> ₹@(venue.Cost > 0 ? venue.Cost.ToString() : "Not Available")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="text-muted">No venues found.</div>
+    }
+
+    <!-- Services Section -->
+    <h4 class="mt-5 mb-3">Services</h4>
+    @if (Model.Services != null && Model.Services.Any())
+    {
+        @foreach (var service in Model.Services)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="~/images/services/@service.ImageUrl" class="card-img-top" style="height: 200px; object-fit: cover;" alt="@service.ServiceName" />
+                    <div class="card-body">
+                        <h5 class="card-title">@service.ServiceName</h5>
+                        <p class="card-text">@service.Description</p>
+                        <p class="card-text">Cost: ₹@service.Cost</p>
+                        <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#serviceModal_@service.ServiceId">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Service -->
+            <div class="modal fade" id="serviceModal_@service.ServiceId" tabindex="-1" aria-labelledby="serviceModalLabel_@service.ServiceId" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="serviceModalLabel_@service.ServiceId">@service.ServiceName</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="~/images/services/@service.ImageUrl" class="img-fluid rounded mb-3" alt="@service.ServiceName" />
+                            <p><strong>Description:</strong> @service.Description</p>
+                            <p><strong>Cost:</strong> ₹@service.Cost</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="text-muted">No services found.</div>
+    }
+</div> *@
+
+
+@model EventOrganizer.Models.ExploreViewModel
+
+<div class="row">
+    <!-- Venues Section -->
+    <h4 class="mt-4 mb-3">Venues</h4>
+    @if (Model.Venues != null && Model.Venues.Any())
+    {
+        @foreach (var venue in Model.Venues)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="@Url.Content(venue.ImageUrl)" class="card-img-top" style="height: 200px; object-fit: cover;" alt="@venue.VenueName" />
+                    <div class="card-body">
+                        <h5 class="card-title">@venue.VenueName</h5>
+                        <p class="card-text">Location: @venue.Location</p>
+
+                        <p class="card-text">Capacity: @venue.Capacity</p>
+                        <p class="card-text">Cost: ₹@(venue.Cost > 0 ? venue.Cost.ToString() : "Not Available")</p>
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#venueModal_@venue.VenueId">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Venue -->
+            <div class="modal fade" id="venueModal_@venue.VenueId" tabindex="-1" aria-labelledby="venueModalLabel_@venue.VenueId" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="venueModalLabel_@venue.VenueId">@venue.VenueName</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="@Url.Content(venue.ImageUrl)" class="img-fluid rounded mb-3" alt="@venue.VenueName" />
+                            <p><strong>Location:</strong> @venue.Location</p>
+                            <p><strong>Capacity:</strong> @venue.Capacity</p>
+                            <p><strong>Cost:</strong> ₹@(venue.Cost > 0 ? venue.Cost.ToString() : "Not Available")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="text-muted">No venues found.</div>
+    }
+
+    <!-- Services Section -->
+    <h4 class="mt-5 mb-3">Services</h4>
+    @if (Model.Services != null && Model.Services.Any())
+    {
+        @foreach (var service in Model.Services)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="@Url.Content(service.ImageUrl)" class="card-img-top" style="height: 200px; object-fit: cover;" alt="@service.ServiceName" />
+                    <div class="card-body">
+                        <h5 class="card-title">@service.ServiceName</h5>
+                        <p class="card-text">@service.Description</p>
+                        <p class="card-text">Cost: ₹@service.Cost</p>
+                        <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#serviceModal_@service.ServiceId">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Service -->
+            <div class="modal fade" id="serviceModal_@service.ServiceId" tabindex="-1" aria-labelledby="serviceModalLabel_@service.ServiceId" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="serviceModalLabel_@service.ServiceId">@service.ServiceName</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="@Url.Content(service.ImageUrl)" class="img-fluid rounded mb-3" alt="@service.ServiceName" />
+                            <p><strong>Description:</strong> @service.Description</p>
+                            <p><strong>Cost:</strong> ₹@service.Cost</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="text-muted">No services found.</div>
+    }
+</div>
+

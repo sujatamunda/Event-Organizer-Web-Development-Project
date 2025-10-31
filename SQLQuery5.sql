@@ -1,0 +1,2 @@
+﻿ALTER TABLE dbo.Login 
+ALTER COLUMN Email VARCHAR(50) COLLATE SQL_Latin1_General_CP1_CI_AS;

@@ -1,0 +1,56 @@
+﻿@model List<EventOrganizer.Models.Bookings>
+
+@{
+    ViewData["Title"] = "Current Bookings";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header bg-success text-white">
+        <h4>Current Bookings</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>User ID</th>
+                    <th>Event Name</th>
+                    <th>Location</th>
+                    <th>Venue</th>
+                    <th>Capacity</th>
+                    <th>Booking Status</th>
+                    <th>Event Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.BookingId</td>
+                        <td>@item.UserId</td>
+                        <td>@item.EventName</td>
+                        <td>@item.Location</td>
+                        <td>@(string.IsNullOrEmpty(item.VenueName) ? "Not Selected" : item.VenueName)</td>
+                        <td>@item.Capacity</td>
+                        <td>
+                            <span class="badge @(item.BookingStatus switch
+                                {
+                                    "Approved" => "bg-success",
+                                    "Pending" => "bg-warning text-dark",
+                                    "Rejected" => "bg-danger",
+                                    "Completed" => "bg-primary",
+                                    _ => "bg-secondary"
+                                })">
+                                @(item.BookingStatus ?? "Unknown")
+                            </span>
+                        </td>
+                        <td>
+                            @item.EventDate.ToString("yyyy-MM-dd")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

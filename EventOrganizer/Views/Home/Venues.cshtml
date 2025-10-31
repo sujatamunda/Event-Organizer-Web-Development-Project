@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Venues";
+    Layout = "~/Views/Shared/_Common.cshtml";
+}
+
+<!-- Hero Section -->
+<div class="container-fluid bg-light py-5 mb-5">
+    <div class="container text-center wow fadeInDown">
+        <h1 class="display-1 mb-3 text-primary">Venues</h1>
+        <nav>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item">
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+
+                <li class="breadcrumb-item active text-dark">Venues</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+
+@{
+    // Arrays containing the venue details
+    var venueNames = new[] { "Utkal mandap Convention Center", "Blue Orchid", "Dolphin garden", "Celebration garden", "Green palm", "Hotel aryan" };
+    var venueCosts = new[] { 10000, 25000, 25000, 15000, 15000, 8000 };  // Cost for each venue
+    var venueImages = new[] { "venue1.jpeg", "venue2.jpg", "venue3.jpg", "venue4.jpg", "venue5.jpg", "venue7.jpg" };
+    var cities = new[] { "Bhubaneswar", "Rourkela", "Sambalpur", "Bhubaneswar", "Rourkela", "Sambalpur" };
+}
+<div class="container py-5">
+    <div class="row g-4">
+        @for (int i = 0; i < venueImages.Length; i++)
+        {
+            <div class="col-md-4">
+                <div class="card shadow h-100">
+                    <!-- Display the image for each venue -->
+                    <img src="~/Images/venues/@venueImages[i]" class="card-img-top" alt="Venue @(i + 1)" style="height: 250px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <!-- Display venue name -->
+                        <h5 class="card-title">@venueNames[i]</h5>
+                        <!-- Display the city/location -->
+                        <p class="card-text">Location: @cities[i]</p>
+                        <!-- Display venue capacity dynamically -->
+                        <p class="card-text">Capacity: @(100 + (i + 1) * 50) Guests</p>
+                        <!-- Display cost dynamically -->
+                        <p class="card-text text-success fw-bold">Rs.@venueCosts[i]</p>
+                        <!-- Book Now button -->
+                        <a href="@Url.Action("Index", "Login", new { venueId = i + 1 })" class="btn btn-primary btn-sm">Book Now</a>
+                        <!-- View Details button (you can implement this to open a modal or redirect to another page) -->
+                        <a href="#" class="btn btn-outline-secondary btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+
+

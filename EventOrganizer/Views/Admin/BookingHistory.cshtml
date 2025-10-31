@@ -1,0 +1,67 @@
+﻿@model List<EventOrganizer.Models.Bookings>
+
+@{
+    ViewData["Title"] = "Booking History";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header bg-secondary text-white">
+        <h4>Booking History</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>User ID</th>
+                    <th>Event Name</th>
+                    <th>Location</th>
+                    <th>Venue</th>
+                    <th>Capacity</th>
+                    
+                    <th>Event Date</th>
+                    <th>Booking Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.BookingId</td>
+                        <td>@item.UserId</td>
+                        <td>@item.EventName</td>
+                        <td>@item.Location</td>
+                        <td>@item.VenueName</td>
+                        <td>@item.Capacity</td>
+                        
+                        <td>@item.EventDate.ToString("yyyy-MM-dd HH:mm")</td>
+
+                        <td>
+                            @if (item.BookingStatus == "Approved")
+                            {
+                                <span class="badge bg-success">@item.BookingStatus</span>
+                            }
+                            else if (item.BookingStatus == "Rejected")
+                            {
+                                <span class="badge bg-danger">@item.BookingStatus</span>
+                            }
+                            else if (item.BookingStatus == "Pending")
+                            {
+                                <span class="badge bg-warning">@item.BookingStatus</span>
+                            }
+                            else if (item.BookingStatus == "Completed")
+                            {
+                                <span class="badge bg-info">@item.BookingStatus</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Unknown</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

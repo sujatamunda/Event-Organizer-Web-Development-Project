@@ -1,0 +1,63 @@
+﻿@model EventOrganizer.Models.ReviewViewModel
+
+@{
+    ViewData["Title"] = "Submit Review";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h6 class="mb-0">Submit Your Review</h6>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("AddReview", "Review", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(m => m.Review.UserId)
+                        @Html.HiddenFor(m => m.Review.CreatedAt)
+
+                        <!-- Event Dropdown -->
+                        <div class="form-group mb-3">
+                            <label class="form-label text-dark">Select Event</label>
+                            @Html.DropDownListFor(m => m.Review.EventId, Model.Events, "-- Select Event --", new { @class = "form-control", required = "required" })
+                            @Html.ValidationMessageFor(m => m.Review.EventId, null, new { @class = "text-danger" })
+                        </div>
+
+                        <!-- Venue Dropdown -->
+                        <div class="form-group mb-3">
+                            <label class="form-label text-dark">Select Venue (optional)</label>
+                            @Html.DropDownListFor(m => m.Review.VenueId, Model.Venues, "-- Select Venue --", new { @class = "form-control" })
+                        </div>
+
+                        <!-- Service Dropdown -->
+                        <div class="form-group mb-3">
+                            <label class="form-label text-dark">Select Service (optional)</label>
+                            @Html.DropDownListFor(m => m.Review.ServiceId, Model.Services, "-- Select Service --", new { @class = "form-control" })
+                        </div>
+
+
+                        <!-- Rating -->
+                        <div class="form-group mb-3">
+                            <label class="form-label text-dark">Rating (1 to 5)</label>
+                            @Html.TextBoxFor(m => m.Review.Rating, new { @class = "form-control", type = "number", min = "1", max = "5", required = "required" })
+                            @Html.ValidationMessageFor(m => m.Review.Rating, null, new { @class = "text-danger" })
+                        </div>
+
+                        <!-- Review Text -->
+                        <div class="form-group mb-3">
+                            <label class="form-label text-dark">Your Review</label>
+                            @Html.TextAreaFor(m => m.Review.ReviewText, new { @class = "form-control", rows = "4", placeholder = "Write your feedback..." })
+                            @Html.ValidationMessageFor(m => m.Review.ReviewText, null, new { @class = "text-danger" })
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success btn-sm px-4">Submit</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@model List<EventOrganizer.Models.PaymentListViewModel>
+
+@foreach (var payment in Model)
+{
+    <tr>
+        <td>@payment.PaymentId</td>
+        <td>@payment.UserName</td>
+        <td>@payment.EventName</td>
+        <td>@payment.Amount.ToString("C")</td>
+        <td>@(payment.PaymentDate?.ToString("yyyy-MM-dd") ?? "N/A")</td>
+        <td>
+            @if (payment.PaymentStatus == "Paid")
+            {
+                <span class="badge bg-success">Paid</span>
+            }
+            else
+            {
+                <span class="badge bg-danger">Unpaid</span>
+            }
+        </td>
+        <td>
+            @if (payment.PaymentStatus != "Paid")
+            {
+                <form method="post" asp-action="MarkAsPaid" asp-controller="Admin" style="display:inline;">
+                    <input type="hidden" name="paymentId" value="@payment.PaymentId" />
+                    <button type="submit" class="btn btn-sm btn-warning">
+                        <i class="fas fa-check-circle"></i> Mark as Paid
+                    </button>
+                </form>
+            }
+            <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#detailsModal_@payment.PaymentId">
+                <i class="fas fa-eye"></i> View
+            </button>
+
+            <div class="modal fade" id="detailsModal_@payment.PaymentId" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Payment Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>User Name:</strong> @payment.UserName</p>
+                            <p><strong>Event Name:</strong> @payment.EventName</p>
+                            <p><strong>Amount:</strong> @payment.Amount.ToString("C")</p>
+                            <p><strong>Payment Method:</strong> @payment.PaymentMethod</p>
+                            <p><strong>Card Number:</strong> @payment.CardNumber</p>
+                            <p><strong>Payment Type:</strong> @payment.PaymentType</p>
+                            <p><strong>Status:</strong> @payment.PaymentStatus</p>
+                            <p><strong>Transaction ID:</strong> @payment.TransactionId</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+}

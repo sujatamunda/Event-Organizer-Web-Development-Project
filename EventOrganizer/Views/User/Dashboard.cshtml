@@ -1,0 +1,794 @@
+﻿@* 
+
+
+
+   @model List<BookingViewModel>
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1 class="text-center mb-4">Welcome @ViewBag.FullName! 🎉</h1>
+
+<style>
+    .dashboard-card {
+        max-width: 90%;
+        margin: 0 auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    table.booking-table {
+        width: 100%;
+        min-width: 1100px;
+        border-collapse: collapse;
+        font-size: 15px;
+    }
+
+        table.booking-table th, table.booking-table td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            white-space: nowrap;
+        }
+
+        table.booking-table th {
+            background-color: #007bff;
+            color: white;
+            font-weight: 600;
+        }
+
+    .btn-sm {
+        padding: 6px 12px;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+    .btn-warning {
+        background-color: #f0ad4e;
+        color: white;
+        border: none;
+    }
+
+    .btn-danger {
+        background-color: #d9534f;
+        color: white;
+        border: none;
+    }
+
+    .no-bookings {
+        text-align: center;
+        padding: 30px 10px;
+    }
+
+    media screen and (max-width: 768px) {
+        .dashboard-title
+
+    {
+        font-size: 20px;
+    }
+
+    table.booking-table th, table.booking-table td {
+        padding: 10px 8px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Slightly smaller text on smaller screens */
+    }
+
+    .table-responsive {
+        overflow-x: scroll; /* Allow horizontal scrolling on small screens */
+    }
+
+    }
+</style>
+
+<script>
+    function confirmCancel() {
+        return confirm("Are you sure you want to cancel this booking?");
+    }
+</script>
+
+<div class="dashboard-card">
+    <div class="dashboard-title">My Bookings</div>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="table-responsive">
+            <table class="booking-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Booking ID</th>
+                        <th>Event</th>
+                        <th>Venue</th>
+                        <th>Location</th>
+                        <th>Services</th>
+                        <th>Capacity</th>
+                        <th>Date</th>
+                        <th>BookingStatus</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model)
+                    {
+                        <tr>
+                            <td>@booking.UserId</td>
+                            <td>@booking.BookingId</td>
+                            <td>@booking.EventName</td>
+                            <td>@booking.VenueName</td>
+                            <td>@booking.Location</td>
+                            <td>
+                                @if (booking.SelectedServiceName != null && booking.SelectedServiceName.Count > 0)
+                                {
+                                    @foreach (var service in booking.SelectedServiceName)
+                                    {
+                                        <span>@service</span>
+
+                                        <br />
+                                    }
+                                }
+                                else
+                                {
+                                    <span>-</span>
+                                }
+                            </td>
+
+                            <td>@booking.Capacity</td>
+                            <td>
+                                @booking.EventDate.ToString("yyyy-MM-dd")
+                            </td>
+                            <td>@booking.BookingStatus</td>
+                            @* <td>
+                                @if (booking.BookingStatus != "Cancelled" && booking.BookingStatus != "Completed")
+                                {
+                                    <a href="@Url.Action("EditBooking", "User", new { id = booking.BookingId })"
+                                       class="btn btn-sm btn-warning">Edit</a>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No action available</span>
+                                }
+
+                                @if (booking.BookingStatus != "Cancelled")
+                                {
+                                    <a href="@Url.Action("CancelBooking", "User", new { id = booking.BookingId })"
+                                       class="btn btn-sm btn-danger" onclick="return confirmCancel();">Cancel</a>
+                                }
+                            </td> *@
+
+
+
+                           @*  <td>
+                                @if (booking.BookingStatus != "Cancelled" && booking.BookingStatus != "Completed")
+                                {
+                                    <a href="@Url.Action("EditBooking", "User", new { id = booking.BookingId })"
+                                       class="btn btn-sm btn-warning">Edit</a>
+
+                                    @* Show Pay button only if not fully paid *@
+                                   @*  @if (booking.PaymentStatus != "Paid")
+                                    {
+                                        <a href="@Url.Action("Payment", "User", new { bookingId = booking.BookingId })"
+                                           class="btn btn-sm btn-primary mt-1">Pay Now</a>
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No action available</span>
+                                }
+
+                                @if (booking.BookingStatus != "Cancelled")
+                                {
+                                    <a href="@Url.Action("CancelBooking", "User", new { id = booking.BookingId })"
+                                       class="btn btn-sm btn-danger mt-1" onclick="return confirmCancel();">Cancel</a>
+                                }
+                            </td> *@
+@* 
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="no-bookings">
+            <h5>No bookings found! 😔</h5>
+            <p>Explore and book an event now!</p>
+            <a href="@Url.Action("CreateBooking", "User")" class="btn btn-success btn-lg">Book an Event</a>
+        </div>
+    }
+</div>
+  *@
+
+@* 
+                                       @model List<BookingViewModel>
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!-- Welcome with Avatar -->
+<div class="text-center mb-4 d-flex align-items-center justify-content-center gap-3">
+    <img src="https://ui-avatars.com/api/?name=@ViewBag.FullName&background=random"
+         alt="Profile Image"
+         class="rounded-circle"
+         style="width: 50px; height: 50px; object-fit: cover;" />
+    <h1 class="mb-0">Welcome @ViewBag.FullName! 🎉</h1>
+</div>
+
+<!-- Styles -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+<style>
+    .dashboard-card {
+        max-width: 95%;
+        margin: 0 auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    table.booking-table {
+        width: 100%;
+        min-width: 1100px;
+        border-collapse: collapse;
+        font-size: 15px;
+    }
+
+        table.booking-table th,
+        table.booking-table td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            white-space: nowrap;
+        }
+
+        table.booking-table th {
+            background-color: #007bff;
+            color: white;
+            font-weight: 600;
+        }
+
+    .booking-table tbody tr:hover {
+        background-color: #f2f9ff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-sm {
+        padding: 6px 12px;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+    .btn-warning {
+        background-color: #f0ad4e;
+        color: white;
+        border: none;
+    }
+
+    .btn-danger {
+        background-color: #d9534f;
+        color: white;
+        border: none;
+    }
+
+    .no-bookings {
+        text-align: center;
+        padding: 30px 10px;
+    }
+
+    media screen and (max-width: 768px) {
+        .dashboard-title
+
+    {
+        font-size: 20px;
+    }
+
+    table.booking-table th,
+    table.booking-table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+
+    .table-responsive {
+        overflow-x: scroll;
+    }
+
+    
+</style>
+
+<script>
+    function confirmCancel() {
+        return confirm("Are you sure you want to cancel this booking?");
+    }
+</script>
+<!-- Moved Explore Card Here -->
+<div class="d-flex justify-content-center">
+    <div class="card mt-5 col-sm-6 col-md-4">
+        <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div>
+                <h5 class="card-title mb-2">Looking for Venues or Services?</h5>
+                <p class="card-text mb-0">Browse available venues and event services tailored to your needs.</p>
+            </div>
+            <a href="@Url.Action("Index", "Explore")" class="btn btn-success mt-3 mt-md-0">Explore Now</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="mb-3"></div>
+
+<div class="dashboard-card">
+    <div class="dashboard-title">My Bookings</div>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="table-responsive">
+            <table class="booking-table display">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Booking ID</th>
+                        <th>Event</th>
+                        <th>Venue</th>
+                        <th>Location</th>
+                        <th>Services</th>
+                        <th>Capacity</th>
+                        <th>Date</th>
+                        <th>BookingStatus</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model)
+                    {
+                        <tr>
+                            <td>@booking.UserId</td>
+                            <td>@booking.BookingId</td>
+                            <td>@booking.EventName</td>
+                            <td>@booking.VenueName</td>
+                            <td>@booking.Location</td>
+                            <td>
+                                @if (booking.SelectedServiceName != null && booking.SelectedServiceName.Count > 0)
+                                {
+                                    @foreach (var service in booking.SelectedServiceName)
+                                    {
+                                        <span>@service</span>
+
+                                        <br />
+                                    }
+                                }
+                                else
+                                {
+                                    <span>-</span>
+                                }
+                            </td>
+                            <td>@booking.Capacity</td>
+                            <td>@booking.EventDate.ToString("yyyy-MM-dd")</td>
+                            <td>@booking.BookingStatus</td>
+                            <td>
+                                @if (booking.BookingStatus != "Cancelled" && booking.BookingStatus != "Completed")
+                                {
+                                    <a href="@Url.Action("EditBooking", "User", new { id = booking.BookingId })"
+                                       class="btn btn-sm btn-warning">Edit</a>
+
+                                    @if (booking.PaymentStatus != "Paid")
+                                    {
+                                        <a href="@Url.Action("Payment", "User", new { bookingId = booking.BookingId })"
+                                           class="btn btn-sm btn-primary mt-1">Pay Now</a>
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No action available</span>
+                                }
+
+                                @if (booking.BookingStatus != "Cancelled")
+                                {
+                                    <a href="@Url.Action("CancelBooking", "User", new { id = booking.BookingId })"
+                                       class="btn btn-sm btn-danger mt-1" onclick="return confirmCancel();">Cancel</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="no-bookings">
+            <h5>No bookings found! 😔</h5>
+            <p>Explore and book an event now!</p>
+            <a href="@Url.Action("CreateBooking", "User")" class="btn btn-success btn-lg">Book an Event</a>
+        </div>
+    }
+</div>
+
+<!-- DataTables Scripts -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.booking-table').DataTable({
+            paging: true,
+            ordering: true,
+            info: true,
+            searching: true
+        });
+    });
+</script>
+ *@
+
+
+
+
+
+@*  @model List<BookingViewModel>
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!-- Welcome with Avatar -->
+<div class="text-center mb-4 d-flex align-items-center justify-content-center gap-3">
+    <img src="https://ui-avatars.com/api/?name=@ViewBag.FullName&background=random"
+         alt="Profile Image"
+         class="rounded-circle"
+         style="width: 50px; height: 50px; object-fit: cover;" />
+    <h1 class="mb-0">Welcome @ViewBag.FullName! 🎉</h1>
+</div>
+
+<!-- Styles -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+<style>
+    .dashboard-card {
+        max-width: 95%;
+        margin: 0 auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    table.booking-table {
+        width: 100%;
+        min-width: 1100px;
+        border-collapse: collapse;
+        font-size: 15px;
+    }
+
+        table.booking-table th,
+        table.booking-table td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            white-space: nowrap;
+        }
+
+        table.booking-table th {
+            background-color: #007bff;
+            color: white;
+            font-weight: 600;
+        }
+
+    .booking-table tbody tr:hover {
+        background-color: #f2f9ff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-sm {
+        padding: 6px 12px;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+    .btn-warning {
+        background-color: #f0ad4e;
+        color: white;
+        border: none;
+    }
+
+    .btn-danger {
+        background-color: #d9534f;
+        color: white;
+        border: none;
+    }
+
+    .no-bookings {
+        text-align: center;
+        padding: 30px 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+    .btn-lg {
+        font-size: 18px;
+        padding: 12px 24px;
+        border-radius: 8px;
+    }
+
+    .d-flex.justify-content-center {
+        margin-top: 20px;
+    }
+</style>
+
+<script>
+    function confirmCancel() {
+        return confirm("Are you sure you want to cancel this booking?");
+    }
+</script>
+
+<!-- Explore Card -->
+<div class="d-flex justify-content-center">
+    <div class="card mt-5 col-sm-6 col-md-4">
+        <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div>
+                <h5 class="card-title mb-2">Looking for Venues or Services?</h5>
+                <p class="card-text mb-0">Browse available venues and event services tailored to your needs.</p>
+            </div>
+            <a href="@Url.Action("Index", "Explore")" class="btn btn-success mt-3 mt-md-0">Explore Now</a>
+        </div>
+    </div>
+</div>
+
+<div class="mb-3"></div>
+
+<!-- My Bookings Section -->
+<div class="dashboard-card">
+    <div class="dashboard-title">My Bookings</div>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="table-responsive">
+            <table class="booking-table display">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Booking ID</th>
+                        <th>Event</th>
+                        <th>Venue</th>
+                        <th>Location</th>
+                        <th>Services</th>
+                        <th>Capacity</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Payment Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model)
+                    {
+                        <tr>
+                            <td>@booking.UserId</td>
+                            <td>@booking.BookingId</td>
+                            <td>@booking.EventName</td>
+                            <td>@booking.VenueName</td>
+                            <td>@booking.Location</td>
+                            <td>
+                                @if (booking.SelectedServiceName != null && booking.SelectedServiceName.Count > 0)
+                                {
+                                    @foreach (var service in booking.SelectedServiceName)
+                                    {
+                                        <span>@service</span>
+
+                                        <br />
+                                    }
+                                }
+                                else
+                                {
+                                    <span>-</span>
+                                }
+                            </td>
+                            <td>@booking.Capacity</td>
+                            <td>@booking.EventDate.ToString("yyyy-MM-dd")</td>
+                            <td>
+                                <span class="badge bg-@(booking.BookingStatus == "Completed" ? "success" : booking.BookingStatus == "Cancelled" ? "secondary" : "info")">
+                                    @booking.BookingStatus
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge bg-@(booking.PaymentStatus == "Paid" ? "success" : booking.PaymentStatus == "Pending" ? "warning" : "danger")">
+                                    @booking.PaymentStatus
+                                </span>
+                            </td>
+                            <td>
+                                <div class="d-flex flex-column gap-1">
+                                    @if (booking.BookingStatus != "Cancelled" && booking.BookingStatus != "Completed")
+                                    {
+                                        <a href="@Url.Action("EditBooking", "User", new { id = booking.BookingId })"
+                                           class="btn btn-sm btn-warning">Edit</a>
+
+                                        @if (booking.PaymentStatus != "Paid")
+                                        {
+                                            <a href="@Url.Action("Payment", "User", new { bookingId = booking.BookingId })"
+                                               class="btn btn-sm btn-primary">Pay Now</a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">No action available</span>
+                                    }
+
+                                    @if (booking.BookingStatus != "Cancelled")
+                                    {
+                                        <a href="@Url.Action("CancelBooking", "User", new { id = booking.BookingId })"
+                                           class="btn btn-sm btn-danger" onclick="return confirmCancel();">Cancel</a>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="no-bookings">
+            <h5>No bookings found! 😔</h5>
+            <p>Explore and book an event now!</p>
+            <a href="@Url.Action("CreateBooking", "User")" class="btn btn-success btn-lg">Book an Event</a>
+        </div>
+    }
+
+    <!-- Contact Us Button -->
+    <div class="d-flex justify-content-center mt-4">
+        <a href="@Url.Action("Contact", "Home")" class="btn btn-primary btn-lg">
+            Contact Us
+        </a>
+    </div>
+</div>
+
+<!-- DataTables Scripts -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.booking-table').DataTable({
+            paging: true,
+            ordering: true,
+            info: true,
+            searching: true
+        });
+    });
+</script>
+ *@
+
+
+        @model List<BookingViewModel>
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!-- Welcome Section -->
+<div class="text-center mb-5">
+    <img src="https://ui-avatars.com/api/?name=@ViewBag.FullName&background=random"
+         alt="Profile"
+         class="rounded-circle"
+         style="width: 70px; height: 70px; object-fit: cover;" />
+    <h2 class="mt-3">Welcome, @ViewBag.FullName! 🎉</h2>
+    <p class="text-muted">Here's a summary of your activities</p>
+</div>
+
+<!-- Dashboard Info Cards -->
+<div class="row mb-5">
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Bookings</h5>
+                <h2>@Model.Count()</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h5 class="card-title">Upcoming Events</h5>
+                <h2>
+                    @Model.Count(b => b.EventDate >= DateTime.Today && (b.BookingStatus == "Approved" || b.BookingStatus == "Pending"))
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h5 class="card-title">Pending Payments</h5>
+                <h2>
+                    @Model.Count(b => b.PaymentStatus == "Unpaid")
+
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Bookings -->
+@if (Model != null && Model.Any())
+{
+    <h4 class="mb-4">Recent Bookings</h4>
+
+    <div class="list-group mb-5">
+        @foreach (var booking in Model.OrderByDescending(b => b.EventDate).Take(3))
+        {
+            <a href="@Url.Action("Details", "User", new { id = booking.BookingId })" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@booking.EventName at @booking.VenueName</h5>
+                    <small>@booking.EventDate.ToString("dd MMM yyyy")</small>
+                </div>
+                <p class="mb-1 text-muted">@booking.Location</p>
+                <small class="badge bg-@(booking.BookingStatus == "Completed" ? "success" : booking.BookingStatus == "Cancelled" ? "secondary" : "info")">
+                    @booking.BookingStatus
+                </small>
+            </a>
+        }
+    </div>
+}
+else
+{
+    <div class="text-center mb-5">
+        <h5>No bookings yet 😔</h5>
+        <p>Book an event today and see it here!</p>
+    </div>
+}
+
+<!-- Quick Actions -->
+<div class="d-flex justify-content-center gap-3">
+    <a href="@Url.Action("CreateBooking", "User")" class="btn btn-primary btn-lg">Book New Venue</a>
+    <a href="@Url.Action("MyBookings", "User")" class="btn btn-outline-primary btn-lg">View All Bookings</a>
+</div>

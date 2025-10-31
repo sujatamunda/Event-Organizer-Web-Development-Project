@@ -1,0 +1,134 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@* Corporate Event Management Page *@
+<div class="container py-5">
+    <div class="row align-items-center">
+        <!-- Left Column: Text Content -->
+        <div class="col-lg-6">
+            <h2 class="mb-4">Corporate Event Planning</h2>
+            <p class="mb-4 text-justify">
+                At <strong>Your Event Planner</strong>, we specialize in crafting professional and seamless corporate events.
+                Whether it’s a product launch, a business conference, an award ceremony, or an annual company celebration,
+                we offer comprehensive event solutions tailored to meet the goals and objectives of your business.
+            </p>
+            <p class="mb-4 text-justify">
+                Our experienced team handles all aspects of event planning, from venue selection and catering to event logistics and guest management.
+                We ensure that every detail is carefully coordinated so you can focus on your business while we take care of everything else.
+            </p>
+            <a href="/Contact" class="btn btn-primary px-4 py-2 rounded-pill">
+                Plan Your Corporate Event <i class="fas fa-briefcase ps-2"></i>
+            </a>
+        </div>
+
+        <!-- Right Column: Images -->
+        <div class="col-lg-6">
+            <img src="~/Images/corporate.jpg" class="img-fluid rounded shadow mb-4" alt="Corporate Event Image">
+            <div class="row">
+                <div class="col-6">
+                    <img src="~/Images/conference2.jpg" class="img-fluid rounded shadow mb-3" alt="Conference Setup">
+                </div>
+                <div class="col-6">
+                    <img src="~/Images/corporate4.jpg" class="img-fluid rounded shadow mb-3" alt="Corporate Dinner">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="row text-center mt-5">
+        <div class="col-md-4">
+            <i class="fas fa-users fa-2x text-primary mb-2"></i>
+            <h5>Team Building</h5>
+            <p>Engaging activities to promote collaboration and morale within your organization.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-cogs fa-2x text-primary mb-2"></i>
+            <h5>Event Management</h5>
+            <p>We handle logistics, scheduling, and overall management of your corporate event.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-utensils fa-2x text-primary mb-2"></i>
+            <h5>Catering Services</h5>
+            <p>We provide high-quality catering options for all your corporate event needs.</p>
+        </div>
+    </div>
+
+    <!-- Corporate Event Types -->
+    <div class="py-5">
+        <h3 class="text-center mb-4">Types of Corporate Events We Specialize In</h3>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow">
+                    <img src="~/Images/corporate2.jpg" class="card-img-top" alt="Conference Event">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Conferences</h5>
+                        <p class="card-text">Organizing conferences to meet business objectives and facilitate networking.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow">
+                    <img src="~/Images/corporate4.jpg" class="card-img-top" alt="Product Launch">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Product Launches</h5>
+                        <p class="card-text">Planning impactful product launches to create buzz and generate interest.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow">
+                    <img src="~/Images/corporate5.jpeg" class="card-img-top" alt="Award Ceremony">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Award Ceremonies</h5>
+                        <p class="card-text">Celebrating achievements with elegant and well-coordinated award ceremonies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow">
+                    <img src="~/Images/corporate6.jpg" class="card-img-top" alt="Team Building">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Team Building</h5>
+                        <p class="card-text">Organizing activities to foster team spirit and improve company culture.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* <!-- Testimonials Section -->
+    <div class="py-5 bg-light">
+        <h3 class="text-center mb-4">What Our Clients Say</h3>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p class="mb-4">"The corporate event we organized with Your Event Planner was flawless. They took care of everything from A to Z, and our team had an unforgettable experience!"</p>
+                    <strong>- John Doe, CEO</strong>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p class="mb-4">"The product launch event was a huge success, thanks to the meticulous planning and attention to detail provided by the team. Highly recommend their services!"</p>
+                    <strong>- Sarah Smith, Marketing Director</strong>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p class="mb-4">"The team building activities they organized helped strengthen our team’s collaboration and morale. It was exactly what we needed!"</p>
+                    <strong>- Michael Brown, HR Manager</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+ *@
+    <!-- Contact CTA Section -->
+    <div class="text-center py-5">
+        <h2 class="mb-4">Ready to Plan Your Corporate Event?</h2>
+        <p class="mb-4">Contact us today and let’s discuss how we can make your event a success!</p>
+        <a href="@Url.Action("Contact", "Home")" class="btn btn-success btn-lg px-5 py-3 rounded-pill">Get in Touch</a>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model List<EventOrganizer.Models.BookingViewModel>
+
+@{
+    ViewData["Title"] = "Pending Bookings";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header bg-warning text-dark">
+        <h4>Pending Bookings</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-responsive table-striped">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>User ID</th>
+                    <th>Event Name</th>
+                    <th>Location</th>
+                    <th>Venue</th>
+                    <th>Payment Status</th>
+                    <th>Event Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model)
+                {
+                    if (booking.BookingStatus == "Pending")
+                    {
+                        <tr>
+                            <td>@booking.BookingId</td>
+                            <td>@booking.UserId</td>
+                            <td>@booking.EventName</td>
+                            <td>@booking.SelectedLocation</td>
+                            <td>@booking.VenueName</td>
+                            <td>
+                                <span class="badge @(booking.BookingStatus switch
+                                    {
+                                        "Approved" => "bg-success",
+                                        "Pending" => "bg-warning text-dark",
+                                        "Rejected" => "bg-danger",
+                                        "Completed" => "bg-primary",
+                                        _ => "bg-secondary"
+                                    })">
+                                    @(booking.BookingStatus ?? "Unknown")
+                                </span>
+                            </td>
+                            <td>
+                                @booking.EventDate.ToString("yyyy-MM-dd HH:mm")
+                            </td>
+                            <td>
+                                <form asp-action="UpdateBookingStatus" method="post" class="d-inline">
+                                    <input type="hidden" name="bookingId" value="@booking.BookingId" />
+                                    <button type="submit" name="status" value="Approved" class="btn btn-success btn-sm">Approve</button>
+                                    <button type="submit" name="status" value="Rejected" class="btn btn-danger btn-sm">Reject</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

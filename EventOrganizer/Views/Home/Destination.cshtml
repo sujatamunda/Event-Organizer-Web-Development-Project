@@ -1,0 +1,162 @@
+﻿@* @*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@* <!-- Hero Section -->
+<div class="hero-section text-center">
+    <h1 class="display-4">Your Dream Destination Wedding</h1>
+    <p class="lead">Celebrate your love in beautiful, exotic locations</p>
+    <div class="d-flex justify-content-center">
+        <a href="#destinations" class="btn btn-primary btn-lg">Explore Destinations</a>
+    </div>
+</div>
+
+<!-- Destinations Section -->
+<div id="destinations" class="container my-5">
+    <h2 class="text-center mb-4">Top Wedding Destinations</h2>
+    <div class="row">
+        <div class="col-md-4 destination-item">
+            <div class="card">
+                <img src="~/Images/image9.jpg" class="card-img-top gallery-img" alt="Destination 1">
+                <div class="card-body">
+                    <h5 class="card-title">Bali, Indonesia</h5>
+                    <p class="card-text">A tropical paradise perfect for a magical wedding.</p>
+                    <a href="#inquiry" class="btn btn-secondary">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 destination-item">
+            <div class="card">
+                <img src="~/Images/image11.jpg" class="card-img-top gallery-img" alt="Destination 2">
+                <div class="card-body">
+                    <h5 class="card-title">Santorini, Greece</h5>
+                    <p class="card-text">An iconic island with stunning sunsets and charming views.</p>
+                    <a href="#inquiry" class="btn btn-secondary">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 destination-item">
+            <div class="card">
+                <img src="~/Images/image8.jpg" class="card-img-top gallery-img" alt="Destination 3">
+                <div class="card-body">
+                    <h5 class="card-title">Maldives</h5>
+                    <p class="card-text">A luxurious and serene destination for an unforgettable wedding.</p>
+                    <a href="#inquiry" class="btn btn-secondary">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Inquiry Form Section -->
+<div id="inquiry" class="container my-5">
+    <h2 class="text-center mb-4">Inquire About Your Wedding</h2>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="destination">Preferred Destination</label>
+            <select class="form-control" id="destination">
+                <option>Bali, Indonesia</option>
+                <option>Santorini, Greece</option>
+                <option>Maldives</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Tell us more about your wedding plans"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit Inquiry</button>
+    </form>
+</div>
+ *@ 
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!-- Hero Section -->
+<div class="hero-section text-center bg-gradient-to-b from-indigo-600 to-purple-700 text-white py-20">
+    <h1 class="text-5xl font-bold mb-4">Your Dream Wedding</h1>
+    <p class="text-xl mb-6">Celebrate your love with stunning, personalized wedding styles</p>
+    <a href="#wedding-types" class="btn btn-primary btn-lg transition transform hover:scale-105 hover:bg-white hover:text-purple-700">Explore Wedding Styles</a>
+</div>
+
+<!-- Wedding Types Section -->
+<div id="wedding-types" class="container my-16">
+    <h2 class="text-center text-4xl font-semibold mb-12">Popular Wedding Styles</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="card shadow-lg transition transform hover:scale-105">
+            <img src="~/Images/beach.jpg" class="card-img-top rounded-t-2xl" alt="Beach Wedding">
+            <div class="p-6">
+                <h5 class="text-2xl font-bold mb-2">Beach Wedding</h5>
+                <p class="text-gray-600 mb-4">Exchange vows with your toes in the sand and the ocean breeze.</p>
+                <a href="#inquiry" class="btn btn-secondary w-full transition transform hover:scale-105">Inquire Now</a>
+            </div>
+        </div>
+        <div class="card shadow-lg transition transform hover:scale-105">
+            <img src="~/Images/palace2.jpeg" class="card-img-top rounded-t-2xl" alt="Palace Wedding">
+            <div class="p-6">
+                <h5 class="text-2xl font-bold mb-2">Palace Wedding</h5>
+                <p class="text-gray-600 mb-4">Experience royal elegance with a grand and majestic celebration.</p>
+                <a href="#inquiry" class="btn btn-secondary w-full transition transform hover:scale-105">Inquire Now</a>
+            </div>
+        </div>
+        <div class="card shadow-lg transition transform hover:scale-105">
+            <img src="~/Images/garden2.jpg" class="card-img-top rounded-t-2xl" alt="Garden Wedding">
+            <div class="p-6">
+                <h5 class="text-2xl font-bold mb-2">Garden Wedding</h5>
+                <p class="text-gray-600 mb-4">Say 'I do' surrounded by lush greenery and blooming flowers.</p>
+                <a href="#inquiry" class="btn btn-secondary w-full transition transform hover:scale-105">Inquire Now</a>
+            </div>
+        </div>
+        <div class="card shadow-lg transition transform hover:scale-105">
+            <img src="~/Images/mountain.jpg" class="card-img-top rounded-t-2xl" alt="Mountain Wedding">
+            <div class="p-6">
+                <h5 class="text-2xl font-bold mb-2">Mountain Wedding</h5>
+                <p class="text-gray-600 mb-4">Celebrate your love with breathtaking views and fresh mountain air.</p>
+                <a href="#inquiry" class="btn btn-secondary w-full transition transform hover:scale-105">Inquire Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Inquiry Form Section -->
+<div id="inquiry" class="container my-16">
+    <h2 class="text-center text-4xl font-semibold mb-12">Inquire About Your Wedding</h2>
+    <form class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <label for="name" class="block font-semibold">Full Name</label>
+                <input type="text" class="form-control rounded-lg p-3" id="name" placeholder="Enter your name" required>
+            </div>
+            <div>
+                <label for="email" class="block font-semibold">Email Address</label>
+                <input type="email" class="form-control rounded-lg p-3" id="email" placeholder="Enter your email" required>
+            </div>
+        </div>
+        <div>
+            <label for="wedding-type" class="block font-semibold">Preferred Wedding Style</label>
+            <select class="form-control rounded-lg p-3" id="wedding-type">
+                <option>Beach Wedding</option>
+                <option>Palace Wedding</option>
+                <option>Garden Wedding</option>
+                <option>Mountain Wedding</option>
+            </select>
+        </div>
+        <div>
+            <label for="message" class="block font-semibold">Message</label>
+            <textarea class="form-control rounded-lg p-3" id="message" rows="4" placeholder="Tell us more about your wedding plans"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-full py-3 text-lg font-bold rounded-lg transition transform hover:scale-105">Submit Inquiry</button>
+    </form>
+</div>

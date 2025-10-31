@@ -1,0 +1,71 @@
+﻿@model List<EventOrganizer.Models.Bookings>
+
+@{
+    ViewData["Title"] = "Bookings List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card shadow rounded">
+        <div class="card-header bg-info text-dark text-center">
+            <h4 class="mb-0">Bookings List</h4>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>User ID</th>
+                        <th>Event </th>
+                        <th>Venue</th>
+                        <th>Location</th>
+                        <th>Capacity</th>
+                        <th>Booking Status</th>
+                        <th>Payment Status</th> <!-- 🔥 New column -->
+                        <th>Event Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.BookingId</td>
+                            <td>@item.UserId</td>
+                            <td>@item.EventName</td>
+                            <td>@item.VenueName</td>
+                            <td>@item.Location</td>
+                            <td>@item.Capacity</td>
+                            <td>
+                                <span class="badge rounded-pill
+                                    @(item.BookingStatus == "Approved" ? "bg-success" :
+                                      item.BookingStatus == "Pending" ? "bg-warning text-dark" :
+                                      item.BookingStatus == "Rejected" ? "bg-danger" : "bg-primary")">
+                                    @item.BookingStatus
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge rounded-pill
+                                    @(item.PaymentStatus == "Paid" ? "bg-success" :
+                                      item.PaymentStatus == "Partial" ? "bg-warning text-dark" :
+                                      item.PaymentStatus == "Unpaid" ? "bg-danger" : "bg-secondary")">
+                                    @item.PaymentStatus
+                                </span>
+                            </td>
+                            <td>@item.EventDate.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>
+                                <form asp-action="UpdateBookingStatus" method="post" class="d-flex flex-wrap gap-1 justify-content-center">
+                                    <input type="hidden" name="bookingId" value="@item.BookingId" />
+                                    <button type="submit" name="status" value="Approved" class="btn btn-success btn-sm">Approve</button>
+                                    <button type="submit" name="status" value="Pending" class="btn btn-warning btn-sm">Pending</button>
+                                    <button type="submit" name="status" value="Rejected" class="btn btn-danger btn-sm">Reject</button>
+                                    <button type="submit" name="status" value="Completed" class="btn btn-primary btn-sm">Complete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

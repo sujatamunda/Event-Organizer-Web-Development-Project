@@ -1,0 +1,125 @@
+﻿@model List<BookingViewModel>
+
+@{
+    ViewData["Title"] = "My Bookings";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!-- Page Title -->
+<div class="text-center mb-5">
+    <h1 class="fw-bold">My Bookings 📚</h1>
+    <p class="text-muted">Manage your event bookings here.</p>
+</div>
+
+<!-- Styles (Optional: keep your existing styles if you already have) -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+<!-- Bookings Table -->
+@if (Model != null && Model.Count > 0)
+{
+    <div class="table-responsive mb-5">
+        <table class="table table-striped table-bordered booking-table display" style="width:100%">
+            <thead class="table-primary">
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Event</th>
+                    <th>Venue</th>
+                    <th>Location</th>
+                    <th>Services</th>
+                    <th>Capacity</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Payment</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model)
+                {
+                    <tr>
+                        <td>@booking.BookingId</td>
+                        <td>@booking.EventName</td>
+                        <td>@booking.VenueName</td>
+                        <td>@booking.Location</td>
+                        <td>
+                            @if (booking.SelectedServiceName != null && booking.SelectedServiceName.Count > 0)
+                            {
+                                @foreach (var service in booking.SelectedServiceName)
+                                {
+                                    <span class="badge bg-secondary">@service</span>
+
+                                    <br />
+                                }
+                            }
+                            else
+                            {
+                                <span>-</span>
+                            }
+                        </td>
+                        <td>@booking.Capacity</td>
+                        <td>@booking.EventDate.ToString("yyyy-MM-dd")</td>
+                        <td>
+                            <span class="badge bg-@(booking.BookingStatus == "Completed" ? "success" : booking.BookingStatus == "Cancelled" ? "secondary" : "info")">
+                                @booking.BookingStatus
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge bg-@(booking.PaymentStatus == "Paid" ? "success" : booking.PaymentStatus == "warning" ? "warning" : "danger")">
+                                @booking.PaymentStatus
+                            </span>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column gap-2">
+                                @if (booking.BookingStatus != "Cancelled" && booking.BookingStatus != "Completed")
+                                {
+                                    <a href="@Url.Action("EditBooking", "User", new { id = booking.BookingId })" class="btn btn-sm btn-warning">Edit</a>
+
+                                    @if (booking.PaymentStatus != "Paid")
+                                    {
+                                        <a href="@Url.Action("Payment", "User", new { bookingId = booking.BookingId })" class="btn btn-sm btn-primary">Pay</a>
+                                    }
+                                }
+                                else
+                                {
+                                    <small class="text-muted">No Actions</small>
+                                }
+
+                                @if (booking.BookingStatus != "Cancelled")
+                                {
+                                    <a href="@Url.Action("CancelBooking", "User", new { id = booking.BookingId })"
+                                       class="btn btn-sm btn-danger"
+                                       onclick="return confirm('Are you sure you want to cancel this booking?');">
+                                        Cancel
+                                    </a>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="text-center mb-5">
+        <h5>No bookings found! 😔</h5>
+        <p>Start by booking your first event now!</p>
+        <a href="@Url.Action("CreateBooking", "User")" class="btn btn-success btn-lg mt-3">Book Now</a>
+    </div>
+}
+
+<!-- DataTables Scripts -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.booking-table').DataTable({
+            paging: true,
+            ordering: true,
+            info: true,
+            searching: true
+        });
+    });
+</script>

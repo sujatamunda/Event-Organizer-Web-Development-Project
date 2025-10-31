@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "EventOrganizer.Controllers.Api.HomeController",
+    "Method": "getone",
+    "RelativePath": "api/sujata/Home/getone",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

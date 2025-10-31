@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Wedding Planner";
+    Layout = "~/Views/Shared/_Common.cshtml";
+
+}
+<div class="container py-5">
+    <div class="row align-items-center">
+        <!-- Left Column: Text Content -->
+        <div class="col-lg-6 wow bounceInLeft" data-wow-delay="0.2s">
+            <h2 class="mb-4">Your Dream Wedding, Perfectly Planned</h2>
+            <p class="mb-4 text-justify">
+                At <strong>Your Wedding Planner</strong>, we believe your special day should be filled with beauty, joy, and unforgettable memories.
+                From conceptualization to execution, we design and coordinate weddings that are tailored to your unique love story.
+                <br /><br />
+                Whether you're envisioning a grand ballroom celebration or an intimate garden affair, our experienced planners are by your side to
+                handle every intricate detail — ensuring a flawless and stress-free experience.
+                <br /><br />
+                We specialize in theme-based weddings, destination planning, luxury décor, vendor management, guest coordination, and personalized styling.
+                With a deep commitment to creativity and precision, we turn dreams into magical realities.
+                <br /><br />
+                Let us transform your wedding into a once-in-a-lifetime event that echoes elegance and romance.
+            </p>
+            <a href="/Contact" class="btn btn-primary px-4 py-2 rounded-pill">
+                Book a Free Consultation <i class="fas fa-calendar-alt ps-2"></i>
+            </a>
+        </div>
+
+        <!-- Right Column: Image Grid with Animation -->
+        <div class="col-lg-6 wow bounceInRight" data-wow-delay="0.4s">
+            <div class="row g-3">
+                <!-- Large Top Image -->
+                <div class="col-12">
+                    <img src="~/Images/WeddingPlanners.png" class="img-fluid rounded shadow" alt="Wedding Planning">
+                </div>
+                <!-- Grid of Three Small Images -->
+                <div class="col-4">
+                    <img src="~/Images/image12.jpg" class="img-fluid rounded shadow" alt="Decor 1">
+                </div>
+                <div class="col-4">
+                    <img src="~/Images/image13.jpg" class="img-fluid rounded shadow" alt="Decor 2">
+                </div>
+                <div class="col-4">
+                    <img src="~/Images/image10.jpg" class="img-fluid rounded shadow" alt="Decor 3">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+﻿@model EventOrganizer.Models.ExploreViewModel
+
+@{
+    ViewData["Title"] = "Explore";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Explore Venues and Services</h2>
+
+    <!-- Search Filters -->
+    <form id="searchForm" class="row g-3 mb-4">
+        <div class="col-md-4">
+            <label for="venueSearch" class="form-label">Search Venues</label>
+            <input type="text" class="form-control" id="venueSearch" name="venueSearch" value="@ViewData["VenueSearch"]" />
+        </div>
+        <div class="col-md-4">
+            <label for="serviceSearch" class="form-label">Search Services</label>
+            <input type="text" class="form-control" id="serviceSearch" name="serviceSearch" value="@ViewData["ServiceSearch"]" />
+        </div>
+        <div class="col-md-4">
+            <label for="locationFilter" class="form-label">Location</label>
+            <input type="text" class="form-control" id="locationFilter" name="locationFilter" value="@ViewData["LocationFilter"]" />
+        </div>
+        <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <!-- Result List -->
+    <div id="venuesServicesList">
+        @Html.Partial("VenuesAndServicesList", Model)
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#searchForm").submit(function (event) {
+                event.preventDefault();
+
+                var venueSearch = $("#venueSearch").val();
+                var serviceSearch = $("#serviceSearch").val();
+                var locationFilter = $("#locationFilter").val();
+
+                $.ajax({
+                    url: '@Url.Action("GetFilteredVenuesAndServices", "Explore")',
+                    type: 'GET',
+                    data: {
+                        venueSearch: venueSearch,
+                        serviceSearch: serviceSearch,
+                        locationFilter: locationFilter
+                    },
+                    success: function (data) {
+                        $("#venuesServicesList").html(data);
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,168 @@
+﻿@{
+    Layout = "~/Views/Shared/_Common.cshtml";
+}
+
+<!-- Hero Section -->
+<div class="container-fluid bg-light py-5 mb-5">
+    <div class="container text-center wow fadeInDown">
+        <h1 class="display-1 mb-3 text-primary">Gallery</h1>
+        <nav>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item">
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+
+                <li class="breadcrumb-item active text-dark">Gallery</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Gallery Section -->
+<div class="container mt-5">
+    <h2 class="text-center mb-3">Our Gallery</h2>
+    <p class="text-center mb-4 px-md-5">
+        Discover stunning moments captured through our lens. From grand events to intimate portraits, our gallery reflects our passion for timeless storytelling and artistic excellence.
+    </p>
+
+    <!-- Filter Buttons -->
+    <div class="text-center mb-4">
+        <button class="btn btn-outline-dark mx-1 filter-btn active" data-filter="all">All</button>
+        <button class="btn btn-outline-dark mx-1 filter-btn" data-filter="wedding">Wedding</button>
+        <button class="btn btn-outline-dark mx-1 filter-btn" data-filter="portrait">Portrait</button>
+        <button class="btn btn-outline-dark mx-1 filter-btn" data-filter="event">Event</button>
+    </div>
+
+    <!-- Zic-Zac Grid Gallery -->
+    <div class="row g-4" id="gallery-container">
+        <div class="col-md-6 gallery-item wedding">
+            <div class="card border-0 shadow-sm">
+                <img src="~/Images/Weddiong.jpg" class="img-fluid rounded-start gallery-img" alt="Wedding">
+            </div>
+        </div>
+        <div class="col-md-6 gallery-item portrait">
+            <div class="card border-0 shadow-sm">
+                <img src="~/Images/image9.jpg" class="img-fluid rounded-end gallery-img" alt="Portrait">
+            </div>
+        </div>
+        <div class="col-md-6 gallery-item event">
+            <div class="card border-0 shadow-sm">
+                <img src="~/Images/image8.jpg" class="img-fluid rounded-start gallery-img" alt="Event">
+            </div>
+        </div>
+        <div class="col-md-6 gallery-item wedding">
+            <div class="card border-0 shadow-sm">
+                <img src="~/Images/image3.jpg" class="img-fluid rounded-end gallery-img" alt="Wedding">
+            </div>
+        </div>
+        <div class="col-md-6 gallery-item portrait">
+            <div class="card border-0 shadow-sm">
+                <img src="~/Images/Image1_.jpg" class="img-fluid rounded-start gallery-img" alt="Portrait">
+            </div>
+        </div>
+        <div class="col-md-6 gallery-item event">
+            <div class="card border-0 shadow-sm">
+                <img src="~/Images/image6.jpg" class="img-fluid rounded-end gallery-img" alt="Event">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Full Image View -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content bg-dark">
+            <div class="modal-body p-0">
+                <img id="modalImage" class="img-fluid w-100" alt="Preview">
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About Section: Photo + Content -->
+<div class="container mt-5">
+    <div class="row align-items-center g-4">
+        <div class="col-md-6">
+            <img src="~/Images/beach2.jpg" class="img-fluid rounded shadow" alt="About Event">
+        </div>
+        <div class="col-md-6">
+            <h2 class="mb-3 text-primary">Crafting Unforgettable Moments</h2>
+            <p>
+                Our events are designed to leave a lasting impression. With creativity, attention to detail, and client-centric planning, we transform your vision into a seamless reality.
+            </p>
+            <ul>
+                <li>Personalized themes tailored to your taste</li>
+                <li>Experienced teams for each event type</li>
+                <li>Seamless execution with modern tools</li>
+            </ul>
+            <a href="/Home/Contact" class="btn btn-primary rounded-pill mt-3 px-4 py-2">Contact Us</a>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('.gallery-item .card').forEach(item => {
+            item.addEventListener('click', function () {
+                const imgUrl = this.querySelector('img').src;
+                document.getElementById('modalImage').src = imgUrl;
+            });
+        });
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+<style>
+    .gallery-img {
+        transition: transform 0.3s ease, box-shadow 0.3s;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+    .filter-btn.active {
+        background-color: #0d6efd;
+        color: white;
+    }
+
+    media (min-width: 768px) {
+        .rounded-start
+
+    {
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+
+    .rounded-end {
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+
+    
+</style>

@@ -1,0 +1,884 @@
+﻿@* @*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            background: #2c3e50;
+            padding-top: 20px;
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+
+            .sidebar a {
+                padding: 12px;
+                text-decoration: none;
+                font-size: 16px;
+                color: #ddd;
+                display: flex;
+                align-items: center;
+                transition: background 0.3s;
+            }
+
+                .sidebar a:hover {
+                    background-color: #34495e;
+                    color: white;
+                }
+
+            .sidebar i {
+                margin-right: 10px;
+                font-size: 18px;
+            }
+
+        /* Sidebar Collapse */
+        .collapsed-sidebar {
+            width: 70px;
+        }
+
+            .collapsed-sidebar .sidebar-text {
+                display: none;
+            }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            background-color: #34495e;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+        }
+
+        /* Main Content */
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Adjust content when sidebar is collapsed */
+        .collapsed-sidebar + .content {
+            margin-left: 90px;
+        }
+
+        /* Cards Styling */
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        /* Table Styling */
+        .table thead {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .table tbody tr:hover {
+            background: #f2f2f2;
+        }
+
+        <style >
+        /* Responsive Adjustments */
+            media (max-width: 768px) {
+            .sidebar
+
+        {
+            width: 70px;
+        }
+
+        .sidebar .sidebar-text {
+            display: none;
+        }
+
+        .content {
+            margin-left: 90px;
+        }
+
+        
+    </style>
+
+    
+</head>
+<body>
+
+
+    @inject IHttpContextAccessor HttpContextAccessor
+    @{
+        var userType = HttpContextAccessor.HttpContext.Session.GetString("UserType");
+        if (string.IsNullOrEmpty(userType) || userType != "User")
+        {
+            Context.Response.Redirect("/Login/Index");
+        }
+
+        // Prevent back button after logout by disabling cache
+        Context.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+        Context.Response.Headers["Pragma"] = "no-cache";
+        Context.Response.Headers["Expires"] = "-1";
+    }
+
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">
+            <i class="fas fa-chevron-left" id="arrow-icon"></i>
+        </button>
+        <div class="text-center mb-3">
+            <img src="~/images/Profile.jpeg" class="rounded-circle" width="80" height="80" alt="User Profile">
+        </div>
+        <h4 class="text-center text-light sidebar-text">User Panel</h4>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link text-Light" href="@Url.Action("Dashboard", "User")"><i class="fas fa-home"></i><span class="sidebar-text"> Dashboard</span></a></li>
+@*             <li class="nav-item"><a class="nav-link text-Light" href="@Url.Action("Events", "User")"><i class="fas fa-calendar-alt"></i><span class="sidebar-text"> Events</span></a></li>
+ *@    @*         <li class="nav-item"><a class="nav-link text-Light" href="@Url.Action("CreateBooking", "User")"><i class="fas fa-book"></i><span class="sidebar-text"> Bookings</span></a></li> *@
+@*             <li class="nav-item"><a class="nav-link text-Light" href="@Url.Action("Customizations", "User")"><i class="fas fa-tools"></i><span class="sidebar-text"> Customizations</span></a></li>
+ *@           
+              @*  <li class="nav-item"><a class="nav-link text-Light" href="@Url.Action("AddReview", "Review")"><i class="fas fa-sign-out-alt"></i><span class="sidebar-text"> Reviews</span></a></li>
+
+               <li class="nav-item"><a class="nav-link text-danger" href="@Url.Action("Logout", "Login")"><i class="fas fa-sign-out-alt"></i><span class="sidebar-text"> Logout</span></a></li>
+
+        </ul>
+
+
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Looking for Venues or Services?</h5>
+                <p class="card-text">Browse available venues and event services tailored to your needs.</p>
+                <a href="@Url.Action("Index", "Explore")" class="btn btn-success">Explore Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content" id="content">
+        <div class="container">
+            @RenderBody()
+
+        </div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            let content = document.getElementById("content");
+            let icon = document.getElementById("arrow-icon");
+
+            if (sidebar.classList.contains("collapsed-sidebar")) {
+                sidebar.classList.remove("collapsed-sidebar");
+                content.style.marginLeft = "260px";
+                icon.classList.remove("fa-chevron-right");
+                icon.classList.add("fa-chevron-left");
+            } else {
+                sidebar.classList.add("collapsed-sidebar");
+                content.style.marginLeft = "90px";
+                icon.classList.remove("fa-chevron-left");
+                icon.classList.add("fa-chevron-right");
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>
+ *@ 
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@* 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            background: #2c3e50;
+            padding-top: 20px;
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+
+            .sidebar a {
+                padding: 12px;
+                text-decoration: none;
+                font-size: 16px;
+                color: #ddd;
+                display: flex;
+                align-items: center;
+                transition: background 0.3s;
+            }
+
+                .sidebar a:hover {
+                    background-color: #34495e;
+                    color: white;
+                }
+
+            .sidebar i {
+                margin-right: 10px;
+                font-size: 18px;
+            }
+
+        .collapsed-sidebar {
+            width: 70px;
+        }
+
+            .collapsed-sidebar .sidebar-text {
+                display: none;
+            }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            background-color: #34495e;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+        }
+
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .collapsed-sidebar + .content {
+            margin-left: 90px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        .table thead {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .table tbody tr:hover {
+            background: #f2f2f2;
+        }
+
+        /* Responsive fix */
+        media (max-width: 768px) {
+            .sidebar
+
+        {
+            width: 70px;
+        }
+
+        .sidebar .sidebar-text {
+            display: none;
+        }
+
+        .content {
+            margin-left: 90px;
+        }
+
+        }
+    </style>
+</head>
+<body>
+
+    @inject IHttpContextAccessor HttpContextAccessor
+    @{
+        var userType = HttpContextAccessor.HttpContext.Session.GetString("UserType");
+        if (string.IsNullOrEmpty(userType) || userType != "User")
+        {
+            Context.Response.Redirect("/Login/Index");
+        }
+
+        Context.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+        Context.Response.Headers["Pragma"] = "no-cache";
+        Context.Response.Headers["Expires"] = "-1";
+    }
+
+    <!-- Top Navbar -->
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4 fixed-top">
+@*         <img src="~/Images/logo.jpeg" alt="Alternate Text" / style="height: 50px";>
+ *@      @*   <a class="navbar-brand" href="#">EventOrganizer</a>
+        <div class="ms-auto d-flex align-items-center">
+            <span class="text-light me-3">Welcome, @HttpContextAccessor.HttpContext.Session.GetString("UserFullName")</span>
+            <a href="@Url.Action("Logout", "Login")" class="btn btn-outline-light btn-sm">Logout</a>
+        </div>
+    </nav>
+    <div class="mb-5"></div>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">
+            <i class="fas fa-chevron-left" id="arrow-icon"></i>
+        </button>
+        <div class="text-center mb-3">
+            <img src="~/images/Profile.jpeg" class="rounded-circle" width="80" height="80" alt="User Profile">
+        </div>
+        <h4 class="text-center text-light sidebar-text">User Panel</h4>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link text-Light" href="@Url.Action("Dashboard", "User")"><i class="fas fa-home"></i><span class="sidebar-text"> Dashboard</span></a></li>
+            <li class="nav-item"><a class="nav-link text-Light" href="@Url.Action("CreateBooking", "User")"><i class="fas fa-book"></i><span class="sidebar-text"> Bookings</span></a></li>
+            <li class="nav-item"><a class="nav-link text-Light" href="@Url.Action("AddReview", "Review")"><i class="fas fa-star"></i><span class="sidebar-text"> Reviews</span></a></li>
+@*             <li class="nav-item"><a class="nav-link text-danger" href="@Url.Action("Logout", "Login")"><i class="fas fa-sign-out-alt"></i><span class="sidebar-text"> Logout</span></a></li>
+ *@        </ul>
+    </div>
+    
+
+    <!-- Main Content -->
+   @*  <div class="content" id="content">
+        <div class="container">
+            @RenderBody()
+
+            
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            let content = document.getElementById("content");
+            let icon = document.getElementById("arrow-icon");
+
+            if (sidebar.classList.contains("collapsed-sidebar")) {
+                sidebar.classList.remove("collapsed-sidebar");
+                content.style.marginLeft = "260px";
+                icon.classList.remove("fa-chevron-right");
+                icon.classList.add("fa-chevron-left");
+            } else {
+                sidebar.classList.add("collapsed-sidebar");
+                content.style.marginLeft = "90px";
+                icon.classList.remove("fa-chevron-left");
+                icon.classList.add("fa-chevron-right");
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html> 
+
+
+
+  *@
+
+@* 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            background: #2c3e50;
+            padding-top: 20px;
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+
+            .sidebar a {
+                padding: 12px;
+                text-decoration: none;
+                font-size: 16px;
+                color: #ddd;
+                display: flex;
+                align-items: center;
+                transition: background 0.3s;
+            }
+
+                .sidebar a:hover {
+                    background-color: #34495e;
+                    color: white;
+                }
+
+            .sidebar i {
+                margin-right: 10px;
+                font-size: 18px;
+            }
+
+        .collapsed-sidebar {
+            width: 70px;
+        }
+
+            .collapsed-sidebar .sidebar-text {
+                display: none;
+            }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            background-color: #34495e;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+        }
+
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .collapsed-sidebar + .content {
+            margin-left: 90px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        .table thead {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .table tbody tr:hover {
+            background: #f2f2f2;
+        }
+
+        /* Responsive Sidebar */
+        media (max-width: 768px) {
+            .sidebar
+
+        {
+            width: 70px;
+        }
+
+        .sidebar .sidebar-text {
+            display: none;
+        }
+
+        .content {
+            margin-left: 90px;
+        }
+
+        }
+
+        /* Icon size */
+        .sidebar a i {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    @inject IHttpContextAccessor HttpContextAccessor
+    @{
+        var userType = HttpContextAccessor.HttpContext.Session.GetString("UserType");
+        if (string.IsNullOrEmpty(userType) || userType != "User")
+        {
+            Context.Response.Redirect("/Login/Index");
+        }
+
+        Context.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+        Context.Response.Headers["Pragma"] = "no-cache";
+        Context.Response.Headers["Expires"] = "-1";
+    }
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4 fixed-top">
+        <a class="navbar-brand" href="#">EventOrganizer</a>
+        <div class="ms-auto d-flex align-items-center">
+            <span class="text-light me-3">Welcome, @HttpContextAccessor.HttpContext.Session.GetString("UserFullName")</span>
+            <a href="@Url.Action("Logout", "Login")" class="btn btn-outline-light btn-sm">Logout</a>
+        </div>
+    </nav>
+
+    <div class="mb-5"></div>
+
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">
+            <i class="fas fa-chevron-left" id="arrow-icon"></i>
+        </button>
+        <div class="text-center mb-3">
+            <img src="~/images/Profile.jpeg" class="rounded-circle" width="80" height="80" alt="User Profile">
+        </div>
+        <h4 class="text-center text-light sidebar-text">User Panel</h4>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("Dashboard", "User")">
+                    <i class="fas fa-home me-2"></i> <!-- FontAwesome Home Icon -->
+                    <span class="sidebar-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("CreateBooking", "User")">
+                    <i class="fas fa-book me-2"></i> <!-- FontAwesome Book Icon -->
+                    <span class="sidebar-text">Bookings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="@Url.Action("AddReview", "Review")">
+                    <i class="fas fa-star me-2"></i> <!-- FontAwesome Star Icon -->
+                    <span class="sidebar-text">Reviews</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="content" id="content">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            let content = document.getElementById("content");
+            let icon = document.getElementById("arrow-icon");
+
+            if (sidebar.classList.contains("collapsed-sidebar")) {
+                sidebar.classList.remove("collapsed-sidebar");
+                content.style.marginLeft = "260px";
+                icon.classList.remove("fa-chevron-right");
+                icon.classList.add("fa-chevron-left");
+            } else {
+                sidebar.classList.add("collapsed-sidebar");
+                content.style.marginLeft = "90px";
+                icon.classList.remove("fa-chevron-left");
+                icon.classList.add("fa-chevron-right");
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html> *@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            background: #2c3e50;
+            padding-top: 20px;
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+
+            .sidebar a {
+                padding: 12px;
+                text-decoration: none;
+                font-size: 16px;
+                color: #ddd;
+                display: flex;
+                align-items: center;
+                transition: background 0.3s;
+            }
+
+                .sidebar a:hover {
+                    background-color: #34495e;
+                    color: white;
+                }
+
+            .sidebar i {
+                margin-right: 10px;
+                font-size: 18px;
+            }
+
+        .collapsed-sidebar {
+            width: 70px;
+        }
+
+            .collapsed-sidebar .sidebar-text {
+                display: none;
+            }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            background-color: #34495e;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+        }
+
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .collapsed-sidebar + .content {
+            margin-left: 90px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        .table thead {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .table tbody tr:hover {
+            background: #f2f2f2;
+        }
+        media (max-width: 768px) {
+            .sidebar
+
+        {
+            width: 70px;
+        }
+
+        .sidebar .sidebar-text {
+            display: none;
+        }
+
+        .content {
+            margin-left: 70px;
+        }
+
+        }
+
+
+       
+
+        /* Icon size */
+        .sidebar a i {
+            font-size: 20px;
+        }
+
+        .active {
+            background-color: #34495e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    @inject IHttpContextAccessor HttpContextAccessor
+    @{
+        var userType = HttpContextAccessor.HttpContext.Session.GetString("UserType");
+        if (string.IsNullOrEmpty(userType) || userType != "User")
+        {
+            Context.Response.Redirect("/Login/Index");
+        }
+
+        Context.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+        Context.Response.Headers["Pragma"] = "no-cache";
+        Context.Response.Headers["Expires"] = "-1";
+    }
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4 fixed-top">
+        <a class="navbar-brand" href="#">EventOrganizer</a>
+        <div class="ms-auto d-flex align-items-center">
+            <span class="text-light me-3">Welcome, @HttpContextAccessor.HttpContext.Session.GetString("UserFullName")</span>
+            <a href="@Url.Action("Logout", "Login")" class="btn btn-outline-light btn-sm">Logout</a>
+        </div>
+    </nav>
+
+    <div class="mb-5"></div>
+
+   
+
+
+    <div class="d-flex" style="min-height: 100vh; margin-top: 56px;">
+        <!-- pushes below navbar -->
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <div class="text-center mb-3">
+                <img src="~/images/Profile.jpeg" class="rounded-circle profile-img" width="80" height="80" alt="User Profile">
+            </div>
+            <h5 class="text-center mb-4 text-light">User Panel</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link text-light" href="@Url.Action("Dashboard", "User")"><i class="bi bi-speedometer2"></i> <span class="sidebar-text">Dashboard</span></a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="@Url.Action("Index", "Explore")"><i class="bi bi-binoculars"></i> <span class="sidebar-text">Explore</span></a></li>
+
+                <li class="nav-item"><a class="nav-link text-light" href="@Url.Action("CreateBooking", "User")"><i class="bi bi-book"></i> <span class="sidebar-text">Bookings</span></a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="@Url.Action("MyBookings", "User")"><i class="bi bi-journal-check"></i> <span class="sidebar-text">My Bookings</span></a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="@Url.Action("AddReview", "Review")"><i class="bi bi-star-fill"></i> <span class="sidebar-text">Reviews</span></a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="@Url.Action("UserProfile", "User")"><i class="bi bi-person"></i> <span class="sidebar-text">User Profile</span></a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="@Url.Action("Contact", "Home")"><i class="bi bi-envelope"></i> <span class="sidebar-text">Contact</span></a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div id="content" class="content flex-grow-1">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            let content = document.getElementById("content");
+            let icon = document.getElementById("arrow-icon");
+
+            if (sidebar.classList.contains("collapsed-sidebar")) {
+                sidebar.classList.remove("collapsed-sidebar");
+                content.style.marginLeft = "260px";
+                icon.classList.remove("fa-chevron-right");
+                icon.classList.add("fa-chevron-left");
+            } else {
+                sidebar.classList.add("collapsed-sidebar");
+                content.style.marginLeft = "90px";
+                icon.classList.remove("fa-chevron-left");
+                icon.classList.add("fa-chevron-right");
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+                    @RenderSection("Scripts", required: false)
+
+</body>
+</html>
+

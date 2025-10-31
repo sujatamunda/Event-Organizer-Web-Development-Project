@@ -1,0 +1,706 @@
+﻿
+
+
+
+
+
+@model EventOrganizer.Models.BookingViewModel
+
+@{
+    ViewData["Title"] = "Create Booking";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@* <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm mt-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="text-center">Book an Event</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("CreateBooking", "User", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(m => m.UserId)
+
+                        <!-- Event Name Dropdown -->
+                        <div class="form-group mb-3">
+                            <label class="form-label">Event Name</label>
+
+                            <!-- Correct Dropdown binding to EventId -->
+                            @Html.DropDownListFor(m => m.EventId, Model.Events, "-- Select Event --",
+                                     new { @class = "form-control", @id = "eventDropdown" })
+
+                            @Html.ValidationMessageFor(m => m.EventId, null, new { @class = "text-danger" })
+
+                            <!-- Custom Event input, shown only if "Other" is selected -->
+                            <input type="text" id="customEventInput" name="CustomEvent"
+                                   class="form-control mt-2 d-none" placeholder="Enter Event Name" />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label">Event Date</label>
+
+                            @if (Model.AvailableDates != null && Model.AvailableDates.Any())
+                            {
+                                <select asp-for="EventDate" class="form-control mb-2">
+                                    <option value="">-- Select a Suggested Date --</option>
+                                    @foreach (var date in Model.AvailableDates)
+                                    {
+                                        <option value="@date">@Convert.ToDateTime(date).ToString("dd-MMM-yyyy")</option>
+                                    }
+                                </select>
+                                <div class="text-muted">Or choose a custom date below</div>
+                            }
+
+                            <!-- Always show manual input -->
+                            @Html.TextBoxFor(m => m.EventDate, new { @class = "form-control", type = "date", placeholder = "Pick a Date" })
+
+                            @Html.ValidationMessageFor(m => m.EventDate, null, new { @class = "text-danger" })
+                            @if (Model.VenueId > 0 && (Model.AvailableDates == null || !Model.AvailableDates.Any()))
+                            {
+                                <small class="text-danger">No available dates found for the selected venue. Please pick manually.</small>
+                            }
+
+                        </div>
+
+
+                        <!-- Location Dropdown -->
+                        <div class="form-group mb-3">
+                            <label class="form-label">Location</label>
+                            @Html.DropDownListFor(m => m.SelectedLocation, Model.Locations, "-- Select Location --",
+                                     new { @class = "form-control", id = "SelectedLocation" })
+                            @Html.ValidationMessageFor(m => m.SelectedLocation, null, new { @class = "text-danger" })
+
+                            <!-- Custom Location Input -->
+                            <input type="text" id="customLocationInput" name="CustomLocation"
+                                   class="form-control mt-2 d-none" placeholder="Enter Location" />
+                        </div>
+
+
+                        
+
+                        <div class="form-group mb-3">
+                            <label class="form-label">Venue</label>
+                            @Html.DropDownListFor(m => m.VenueId, Model.Venues, "-- Select Venue --",
+                                     new { @class = "form-control", id = "VenueDropdown" })
+                            @Html.ValidationMessageFor(m => m.VenueId, null, new { @class = "text-danger" })
+
+                            <!-- Custom Venue Input -->
+                            <input type="text" id="customVenueInput" name="CustomVenue"
+                                   class="form-control mt-2 d-none" placeholder="Enter Venue Name" />
+                        </div>
+
+
+
+                        <div class="form-group mb-3 text-center">
+                            <label class="form-label d-block">Services</label>
+
+                            <div class="dropdown d-inline-block">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownServices" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Select Services
+                                </button>
+
+                                <ul class="dropdown-menu dropdown-menu-center shadow p-3 border-0 rounded-4 text-start" style="min-width: 250px;" aria-labelledby="dropdownServices">
+                                    @foreach (var service in Model.Services)
+                                    {
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input service-checkbox" type="checkbox"
+                                                       name="SelectedServiceName"
+                                                       value="@service.Text"
+                                                       id="service_@service.Value"
+                                                @(Model.SelectedServiceName.Contains(service.Text) ? "checked" : "") />
+                                                <label class="form-check-label" for="service_@service.Value">@service.Text</label>
+                                            </div>
+                                        </li>
+                                    }
+
+                                    <!-- Custom service input -->
+                                    <li class="mt-3" id="customServiceContainer" style="display: none;">
+                                        <input type="text" name="CustomService" class="form-control" placeholder="Enter Custom Service (if any)" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <!-- Capacity -->
+                        <div class="form-group mb-3">
+                            <label class="form-label">Capacity</label>
+                            @Html.TextBoxFor(m => m.Capacity, new { @class = "form-control", type = "number", placeholder = "Enter Capacity", required = "required" })
+                            @Html.ValidationMessageFor(m => m.Capacity, null, new { @class = "text-danger" })
+                        </div>
+
+                      
+                       @*  <div class="form-group mb-3">
+                            <label class="form-label">Event Date</label>
+
+                            @if (Model.AvailableDates != null && Model.AvailableDates.Any())
+                            {
+                                <select asp-for="EventDate" class="form-control mb-2">
+                                    <option value="">-- Select a Suggested Date --</option>
+                                    @foreach (var date in Model.AvailableDates)
+                                    {
+                                        <option value="@date">@Convert.ToDateTime(date).ToString("dd-MMM-yyyy")</option>
+                                    }
+                                </select>
+                                <div class="text-muted">Or choose a custom date below</div>
+                            }
+
+                            <!-- Always show manual input -->
+                            @Html.TextBoxFor(m => m.EventDate, new { @class = "form-control", type = "date", placeholder = "Pick a Date" })
+
+                            @Html.ValidationMessageFor(m => m.EventDate, null, new { @class = "text-danger" })
+                            @if (Model.VenueId > 0 && (Model.AvailableDates == null || !Model.AvailableDates.Any()))
+                            {
+                                <small class="text-danger">No available dates found for the selected venue. Please pick manually.</small>
+                            }
+
+                        </div> *@
+
+
+                        <!-- Description -->
+                       @*  <div class="form-group mb-3">
+                            <label class="form-label">Description</label>
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "4", placeholder = "Enter Description" })
+                            @Html.ValidationMessageFor(m => m.Description, null, new { @class = "text-danger" })
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success">Book Now</button>
+                        </div>
+
+                        @if (!string.IsNullOrWhiteSpace(ViewBag.SuccessMsg))
+                        {
+                            <div class="mt-3 bg-success text-white p-2 text-center">@ViewBag.SuccessMsg</div>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMsg))
+                        {
+                            <div class="mt-3 bg-danger text-white p-2 text-center">@ViewBag.ErrorMsg</div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ *@
+ 
+
+
+
+
+@* 
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+            <div class="card border-0 rounded-4 shadow-lg" style=""min-height: 500px;"">
+                <div class="row g-0 style=" height: 600px;"">
+                    <!-- Left Side Image or Illustration -->
+                    <div class="col-md-5 d-none d-md-block bg-light rounded-start"
+                         style="background: url('/Images/eventbook.jpg') center/cover no-repeat; min-height: 500px;">
+                    </div>
+
+
+
+
+                    <!-- Right Side Form Section -->
+                    <div class="col-md-7">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="card-title text-center text-success mb-4"> Booking</h3> *@
+
+@* 
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+            <!-- Enforce fixed height on card -->
+            <div class="card border-0 rounded-4 shadow-lg" style="height: 100%;">
+                <div class="row g-0" style="height: 100%; min-height: 550px;">
+                    <!-- Left Side Image -->
+                    <div class="col-md-5 d-none d-md-block bg-light rounded-start"
+                         style="background: url('/Images/eventbook.jpg') center/cover no-repeat; height: 100%;">
+                    </div>
+
+                    <!-- Right Side Form Section -->
+                    <div class="col-md-7 d-flex align-items-stretch">
+                        <div class="card-body p-4 p-md-5 d-flex flex-column justify-content-between w-100">
+
+                            @using (Html.BeginForm("CreateBooking", "User", FormMethod.Post))
+                            {
+                                @Html.HiddenFor(m => m.UserId)
+
+                                <!-- Event Name Dropdown -->
+                                <div class="mb-3">
+                                    <label class="form-label">Event Name</label>
+                                    @Html.DropDownListFor(m => m.EventId, Model.Events, "-- Select Event --", new { @class = "form-control", @id = "eventDropdown" })
+                                    @Html.ValidationMessageFor(m => m.EventId, null, new { @class = "text-danger" })
+                                    <input type="text" id="customEventInput" name="CustomEvent" class="form-control mt-2 d-none" placeholder="Enter Event Name" />
+                                </div>
+
+                                <!-- Event Date -->
+                                <div class="mb-3">
+                                    <label class="form-label">Event Date</label>
+                                    @if (Model.AvailableDates != null && Model.AvailableDates.Any())
+                                    {
+                                        <select asp-for="EventDate" class="form-control mb-2">
+                                            <option value="">-- Select a Suggested Date --</option>
+                                            @foreach (var date in Model.AvailableDates)
+                                            {
+                                                <option value="@date">@Convert.ToDateTime(date).ToString("dd-MMM-yyyy")</option>
+                                            }
+                                        </select>
+                                        <div class="text-muted">Or choose a custom date below</div>
+                                    }
+                                    @Html.TextBoxFor(m => m.EventDate, new { @class = "form-control", type = "date", placeholder = "Pick a Date" })
+                                    @Html.ValidationMessageFor(m => m.EventDate, null, new { @class = "text-danger" })
+                                </div>
+
+                                <!-- Location -->
+                                <div class="mb-3">
+                                    <label class="form-label">Location</label>
+                                    @Html.DropDownListFor(m => m.SelectedLocation, Model.Locations, "-- Select Location --", new { @class = "form-control", id = "SelectedLocation" })
+                                    @Html.ValidationMessageFor(m => m.SelectedLocation, null, new { @class = "text-danger" })
+                                    <input type="text" id="customLocationInput" name="CustomLocation" class="form-control mt-2 d-none" placeholder="Enter Location" />
+                                </div>
+
+                                <!-- Venue -->
+                                <div class="mb-3">
+                                    <label class="form-label">Venue</label>
+                                    @Html.DropDownListFor(m => m.VenueId, Model.Venues, "-- Select Venue --", new { @class = "form-control", id = "VenueDropdown" })
+                                    @Html.ValidationMessageFor(m => m.VenueId, null, new { @class = "text-danger" })
+                                    <input type="text" id="customVenueInput" name="CustomVenue" class="form-control mt-2 d-none" placeholder="Enter Venue Name" />
+                                </div>
+
+                                <!-- Services -->
+                                <div class="mb-3">
+                                    <label class="form-label">Services</label>
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-primary w-100 dropdown-toggle" type="button" id="dropdownServices" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Select Services
+                                        </button>
+                                        <ul class="dropdown-menu shadow w-100 px-3" aria-labelledby="dropdownServices">
+                                            @foreach (var service in Model.Services)
+                                            {
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input service-checkbox" type="checkbox" name="SelectedServiceName" value="@service.Text" id="service_@service.Value" @(Model.SelectedServiceName.Contains(service.Text) ? "checked" : "") />
+                                                        <label class="form-check-label" for="service_@service.Value">@service.Text</label>
+                                                    </div>
+                                                </li>
+                                            }
+                                            <li class="mt-3" id="customServiceContainer" style="display: none;">
+                                                <input type="text" name="CustomService" class="form-control" placeholder="Enter Custom Service (if any)" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Capacity -->
+                                <div class="mb-3">
+                                    <label class="form-label">Capacity</label>
+                                    @Html.TextBoxFor(m => m.Capacity, new { @class = "form-control", type = "number", placeholder = "Enter Capacity" })
+                                    @Html.ValidationMessageFor(m => m.Capacity, null, new { @class = "text-danger" })
+                                </div>
+
+                                <!-- Description -->
+                                <div class="mb-4">
+                                    <label class="form-label">Description</label>
+                                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 4, placeholder = "Enter Description" })
+                                    @Html.ValidationMessageFor(m => m.Description, null, new { @class = "text-danger" })
+                                </div>
+
+                                <!-- Submit -->
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success px-4 rounded-pill">Book Now</button>
+                                </div>
+
+                                @if (!string.IsNullOrWhiteSpace(ViewBag.SuccessMsg))
+                                {
+                                    <div class="alert alert-success text-center mt-3">@ViewBag.SuccessMsg</div>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMsg))
+                                {
+                                    <div class="alert alert-danger text-center mt-3">@ViewBag.ErrorMsg</div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ *@@* </div> *@
+
+
+
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow border-0 rounded-4">
+                <div class="row g-0" style="min-height: 550px;">
+                    <!-- Left Side Image -->
+                    <div class="col-md-5 d-none d-md-block">
+                        <img src="~/Images/book.jpg" alt="Booking Image"
+                             class="img-fluid h-100 rounded-start" style="object-fit: cover;" />
+                    </div>
+
+                    <!-- Right Side Form -->
+                    <div class="col-md-7 d-flex align-items-stretch">
+                        <div class="card-body p-4 d-flex flex-column justify-content-between w-100">
+                            <h3 class="card-title text-center text-success mb-4">Booking</h3>
+
+                            @using (Html.BeginForm("CreateBooking", "User", FormMethod.Post))
+                            {
+                                @Html.HiddenFor(m => m.UserId)
+
+                                <!-- Event Name -->
+                                <div class="mb-3">
+                                    <label class="form-label">Event Name</label>
+                                    @Html.DropDownListFor(m => m.EventId, Model.Events, "-- Select Event --", new { @class = "form-control", @id = "eventDropdown" })
+                                    @Html.ValidationMessageFor(m => m.EventId, null, new { @class = "text-danger" })
+                                    <input type="text" id="customEventInput" name="CustomEvent" class="form-control mt-2 d-none" placeholder="Enter Event Name" />
+                                </div>
+
+                                <!-- Event Date -->
+                                <div class="mb-3">
+                                    <label class="form-label">Event Date</label>
+                                    @if (Model.AvailableDates != null && Model.AvailableDates.Any())
+                                    {
+                                        <select asp-for="EventDate" class="form-control mb-2">
+                                            <option value="">-- Select a Suggested Date --</option>
+                                            @foreach (var date in Model.AvailableDates)
+                                            {
+                                                <option value="@date">@Convert.ToDateTime(date).ToString("dd-MMM-yyyy")</option>
+                                            }
+                                        </select>
+                                        <div class="text-muted">Or choose a custom date below</div>
+                                    }
+                                    @Html.TextBoxFor(m => m.EventDate, new { @class = "form-control", type = "date", placeholder = "Pick a Date" })
+                                    @Html.ValidationMessageFor(m => m.EventDate, null, new { @class = "text-danger" })
+                                </div>
+
+                                <!-- Location -->
+                                <div class="mb-3">
+                                    <label class="form-label">Location</label>
+                                    @Html.DropDownListFor(m => m.SelectedLocation, Model.Locations, "-- Select Location --", new { @class = "form-control", id = "SelectedLocation" })
+                                    @Html.ValidationMessageFor(m => m.SelectedLocation, null, new { @class = "text-danger" })
+                                    <input type="text" id="customLocationInput" name="CustomLocation" class="form-control mt-2 d-none" placeholder="Enter Location" />
+                                </div>
+
+                                <!-- Venue -->
+                                <div class="mb-3">
+                                    <label class="form-label">Venue</label>
+                                    @Html.DropDownListFor(m => m.VenueId, Model.Venues, "-- Select Venue --", new { @class = "form-control", id = "VenueDropdown" })
+                                    @Html.ValidationMessageFor(m => m.VenueId, null, new { @class = "text-danger" })
+                                    <input type="text" id="customVenueInput" name="CustomVenue" class="form-control mt-2 d-none" placeholder="Enter Venue Name" />
+                                </div>
+
+                                <!-- Services -->
+                                <div class="mb-3">
+                                    <label class="form-label">Services</label>
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-primary w-100 dropdown-toggle" type="button" id="dropdownServices" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Select Services
+                                        </button>
+                                        <ul class="dropdown-menu shadow w-100 px-3" aria-labelledby="dropdownServices">
+                                            @foreach (var service in Model.Services)
+                                            {
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input service-checkbox" type="checkbox" name="SelectedServiceName" value="@service.Text" id="service_@service.Value" @(Model.SelectedServiceName.Contains(service.Text) ? "checked" : "") />
+                                                        <label class="form-check-label" for="service_@service.Value">@service.Text</label>
+                                                    </div>
+                                                </li>
+                                            }
+                                            <li class="mt-3" id="customServiceContainer" style="display: none;">
+                                                <input type="text" name="CustomService" class="form-control" placeholder="Enter Custom Service (if any)" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Capacity -->
+                                <div class="mb-3">
+                                    <label class="form-label">Capacity</label>
+                                    @Html.TextBoxFor(m => m.Capacity, new { @class = "form-control", type = "number", placeholder = "Enter Capacity" })
+                                    @Html.ValidationMessageFor(m => m.Capacity, null, new { @class = "text-danger" })
+                                </div>
+
+                                <!-- Description -->
+                                <div class="mb-4">
+                                    <label class="form-label">Description</label>
+                                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 4, placeholder = "Enter Description" })
+                                    @Html.ValidationMessageFor(m => m.Description, null, new { @class = "text-danger" })
+                                </div>
+
+                                @* <!-- Submit -->
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success px-4 rounded-pill">Book Now</button>
+                                </div> *@
+
+                                <!-- Submit -->
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success px-4 rounded-pill" id="bookNowButton">Book Now</button>
+                                </div>
+
+
+                                @if (!string.IsNullOrWhiteSpace(ViewBag.SuccessMsg))
+                                {
+                                    <div class="alert alert-success text-center mt-3">@ViewBag.SuccessMsg</div>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMsg))
+                                {
+                                    <div class="alert alert-danger text-center mt-3">@ViewBag.ErrorMsg</div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="venueModal" tabindex="-1" role="dialog" aria-labelledby="venueModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="venueModalLabel">Venue Booking Conflict</h5>
+                <button type="button" class="close text-white" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @TempData["VenueBooked"]
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+                            
+
+                    <script>
+    $(document).ready(function () {
+
+        // Event dropdown toggle for custom input
+        $('#eventDropdown').change(function () {
+            if ($(this).val() === "Other") {
+                $('#customEventInput').removeClass("d-none").attr("required", "required");
+            } else {
+                $('#customEventInput').addClass("d-none").removeAttr("required");
+            }
+        });
+
+        // Location change: update venues based on city or show custom input
+        $('#SelectedLocation').change(function () {
+            var selected = $(this).val();
+
+            if (selected === "Other") {
+                $('#customLocationInput').removeClass("d-none").attr("required", "required");
+
+                // Only show "-- Select Venue --" and "Other"
+                var venueDropdown = $('#VenueDropdown');
+                venueDropdown.empty();
+                venueDropdown.append($('<option>', {
+                    value: '',
+                    text: '-- Select Venue --'
+                }));
+                venueDropdown.append($('<option>', {
+                    value: 'Other',
+                    text: 'Other'
+                }));
+
+            } else {
+                $('#customLocationInput').addClass("d-none").removeAttr("required");
+
+                // Load venues via AJAX
+                $.ajax({
+                    url: '/User/GetVenuesByCity',
+                    type: 'GET',
+                        data: { city: selected,eventDate:$('#EventDate').val() },
+                    success: function (data) {
+                        console.log("Received venues:", data); // Debug
+                        var venueDropdown = $('#VenueDropdown');
+                        venueDropdown.empty();
+                        venueDropdown.append($('<option>', {
+                            value: '',
+                            text: '-- Select Venue --'
+                        }));
+
+                        $.each(data, function (i, venue) {
+                            venueDropdown.append($('<option>', {
+                                value: venue.value,
+                                text: venue.text
+                            }));
+                        });
+
+                        venueDropdown.append($('<option>', {
+                            value: 'Other',
+                            text: 'Other'
+                        }));
+                    },
+                    error: function () {
+                        alert("Failed to load venues.");
+                    }
+                });
+            }
+        });
+
+        // Venue dropdown change: show custom input if "Other", else load available dates
+        $('#VenueDropdown').change(function () {
+            const selectedVenueId = $(this).val();
+
+            if (selectedVenueId === "Other") {
+                $('#customVenueInput').removeClass("d-none").attr("required", "required");
+                $('#date-suggestions').empty();
+            } else {
+                $('#customVenueInput').addClass("d-none").removeAttr("required");
+
+                // Load available dates for selected venue
+                if (selectedVenueId) {
+                    $.ajax({
+                        url: '/User/GetAvailableDates',
+                        type: 'GET',
+                        data: { venueId: selectedVenueId },
+                        success: function (data) {
+                            if (Array.isArray(data) && data.length > 0) {
+                                let suggestionsHtml = "<strong>Available Dates:</strong><ul>";
+                                data.forEach(date => {
+                                    let formatted = new Date(date).toLocaleString();
+                                    suggestionsHtml += `<li>${formatted}</li>`;
+                                });
+                                suggestionsHtml += "</ul>";
+                                $('#date-suggestions').html(suggestionsHtml);
+                            } else {
+                                $('#date-suggestions').html('<span class="text-danger">No available dates found.</span>');
+                            }
+                        },
+                        error: function () {
+                            $('#date-suggestions').html('<span class="text-danger">Error loading dates.</span>');
+                        }
+                    });
+                } else {
+                    $('#date-suggestions').empty();
+                }
+            }
+        });
+
+        $('#VenueDropdown').trigger('change');
+
+        // Services dropdown toggle for custom input
+        $('#serviceDropdown').change(function () {
+            if ($(this).val() === "Other") {
+                $('#customServiceInput').removeClass("d-none").attr("required", "required");
+            } else {
+                $('#customServiceInput').addClass("d-none").removeAttr("required");
+            }
+        });
+
+        // Service checkboxes toggle custom input for "Other"
+        const checkboxes = document.querySelectorAll('.service-checkbox');
+        const customContainer = document.getElementById('customServiceContainer');
+
+        function toggleCustomService() {
+            let show = false;
+            checkboxes.forEach(cb => {
+                if (cb.value.trim().toLowerCase() === "other" && cb.checked) {
+                    show = true;
+                }
+            });
+            if (customContainer) {
+                customContainer.style.display = show ? "block" : "none";
+            }
+        }
+
+        toggleCustomService();
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', toggleCustomService);
+        });
+
+        // Modal show if venue is booked
+        @if (TempData["VenueBooked"] != null)
+        {
+            <text>
+                $('#venueModal').modal('show');
+            </text>
+        }
+
+        // Check venue availability before booking submission
+        $('#bookingForm').submit(function (e) {
+            const venueId = $('#VenueDropdown').val();
+            const eventDate = $('#EventDate').val();  // Assuming your date input has id "EventDate"
+
+            if (venueId && eventDate) {
+                // Prevent form submission until availability check is done
+                e.preventDefault();
+
+                // Call backend to check venue availability
+                $.ajax({
+                    url: '/User/IsVenueAvailable',
+                    type: 'POST',
+                    data: { venueId: venueId, eventDate: eventDate },
+                    success: function (response) {
+                        if (response.isAvailable) {
+                            // Venue is available, proceed with form submission
+                            $('#bookingForm')[0].submit();
+                        } else {
+                            // Venue is not available, show error message
+                            alert('The selected venue is already booked for the selected date.');
+                        }
+                    },
+                    error: function () {
+                        alert('Error checking venue availability.');
+                    }
+                });
+            }
+        });
+
+                     // Submit booking form and redirect to payment page
+        function submitBookingForm() {
+            $.ajax({
+                url: '/User/CreateBooking',
+                type: 'POST',
+                data: $('#bookingForm').serialize(),
+                success: function (response) {
+                    if (response.success) {
+                        // Redirect to the payment page with the bookingId
+                        window.location.href = '/User/Payment?bookingId=' + response.bookingId;
+                    } else {
+                        alert(response.message || "Booking failed. Please try again.");
+                    }
+                },
+                error: function () {
+                    alert("Error processing the booking. Please try again.");
+                }
+            });
+        }
+    });
+</script>
+}
+ 
+
+
+

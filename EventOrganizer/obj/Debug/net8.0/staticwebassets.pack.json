@@ -1,0 +1,773 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\EventOrganizer.bundle.scp.css",
+      "PackagePath": "staticwebassets\\EventOrganizer.67kll72t66.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\Image1_.jpg",
+      "PackagePath": "staticwebassets\\Images\\Image1_.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\Profile.jpeg",
+      "PackagePath": "staticwebassets\\Images\\Profile.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\WeddingPlanners.png",
+      "PackagePath": "staticwebassets\\Images\\WeddingPlanners.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\Weddiong.jpg",
+      "PackagePath": "staticwebassets\\Images\\Weddiong.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\background.jpg",
+      "PackagePath": "staticwebassets\\Images\\background.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\beach.jpg",
+      "PackagePath": "staticwebassets\\Images\\beach.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\beach2.jpg",
+      "PackagePath": "staticwebassets\\Images\\beach2.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\bg-login-image.jpg",
+      "PackagePath": "staticwebassets\\Images\\bg-login-image.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\birthady5.jpg",
+      "PackagePath": "staticwebassets\\Images\\birthady5.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\birthday1.jpg",
+      "PackagePath": "staticwebassets\\Images\\birthday1.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\birthday2.jpg",
+      "PackagePath": "staticwebassets\\Images\\birthday2.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\birthday3.jpg",
+      "PackagePath": "staticwebassets\\Images\\birthday3.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\birthday4.jpg",
+      "PackagePath": "staticwebassets\\Images\\birthday4.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\book.jpg",
+      "PackagePath": "staticwebassets\\Images\\book.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\booking.jpg",
+      "PackagePath": "staticwebassets\\Images\\booking.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\catering1.png",
+      "PackagePath": "staticwebassets\\Images\\catering1.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\catering2.jpg",
+      "PackagePath": "staticwebassets\\Images\\catering2.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\catering3.jpg",
+      "PackagePath": "staticwebassets\\Images\\catering3.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\catering3.png",
+      "PackagePath": "staticwebassets\\Images\\catering3.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\catering4.jpg",
+      "PackagePath": "staticwebassets\\Images\\catering4.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\conference2.jpg",
+      "PackagePath": "staticwebassets\\Images\\conference2.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\confrence.jpg",
+      "PackagePath": "staticwebassets\\Images\\confrence.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\corporate.jpg",
+      "PackagePath": "staticwebassets\\Images\\corporate.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\corporate1.jpeg",
+      "PackagePath": "staticwebassets\\Images\\corporate1.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\corporate2.jpg",
+      "PackagePath": "staticwebassets\\Images\\corporate2.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\corporate4.jpg",
+      "PackagePath": "staticwebassets\\Images\\corporate4.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\corporate5.jpeg",
+      "PackagePath": "staticwebassets\\Images\\corporate5.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\corporate6.jpg",
+      "PackagePath": "staticwebassets\\Images\\corporate6.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\culture1.jpg",
+      "PackagePath": "staticwebassets\\Images\\culture1.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\destination.jpg",
+      "PackagePath": "staticwebassets\\Images\\destination.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\destination1.jpg",
+      "PackagePath": "staticwebassets\\Images\\destination1.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\destination2.jpg",
+      "PackagePath": "staticwebassets\\Images\\destination2.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\destination3.jpg",
+      "PackagePath": "staticwebassets\\Images\\destination3.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\dj.jpg",
+      "PackagePath": "staticwebassets\\Images\\dj.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\event book.jpg",
+      "PackagePath": "staticwebassets\\Images\\event book.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\eventbook.jpg",
+      "PackagePath": "staticwebassets\\Images\\eventbook.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\eventlogo.jpg",
+      "PackagePath": "staticwebassets\\Images\\eventlogo.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\garden.jpg",
+      "PackagePath": "staticwebassets\\Images\\garden.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\garden2.jpg",
+      "PackagePath": "staticwebassets\\Images\\garden2.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\image10.jpg",
+      "PackagePath": "staticwebassets\\Images\\image10.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\image11.jpg",
+      "PackagePath": "staticwebassets\\Images\\image11.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\image12.jpg",
+      "PackagePath": "staticwebassets\\Images\\image12.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\image13.jpg",
+      "PackagePath": "staticwebassets\\Images\\image13.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\image3.jpg",
+      "PackagePath": "staticwebassets\\Images\\image3.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\image4.jpg",
+      "PackagePath": "staticwebassets\\Images\\image4.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\image6.jpg",
+      "PackagePath": "staticwebassets\\Images\\image6.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\image8.jpg",
+      "PackagePath": "staticwebassets\\Images\\image8.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\image9.jpg",
+      "PackagePath": "staticwebassets\\Images\\image9.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\istockphoto-1427137499-2048x2048.jpg",
+      "PackagePath": "staticwebassets\\Images\\istockphoto-1427137499-2048x2048.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\logo.jpeg",
+      "PackagePath": "staticwebassets\\Images\\logo.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\mixedplatter.jpg",
+      "PackagePath": "staticwebassets\\Images\\mixedplatter.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\mountain.jpg",
+      "PackagePath": "staticwebassets\\Images\\mountain.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\music.jpg",
+      "PackagePath": "staticwebassets\\Images\\music.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\music2.jpg",
+      "PackagePath": "staticwebassets\\Images\\music2.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\music3.jpg",
+      "PackagePath": "staticwebassets\\Images\\music3.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\nonveg.jpg",
+      "PackagePath": "staticwebassets\\Images\\nonveg.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\palace.jpg",
+      "PackagePath": "staticwebassets\\Images\\palace.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\palace2.jpeg",
+      "PackagePath": "staticwebassets\\Images\\palace2.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\party1.png",
+      "PackagePath": "staticwebassets\\Images\\party1.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\payment.jpg",
+      "PackagePath": "staticwebassets\\Images\\payment.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\photocamera.jpg",
+      "PackagePath": "staticwebassets\\Images\\photocamera.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\potrait.jpeg",
+      "PackagePath": "staticwebassets\\Images\\potrait.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\reception1.jpg",
+      "PackagePath": "staticwebassets\\Images\\reception1.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\111aebb6-9115-4063-8492-7217a1ff2866.jpg",
+      "PackagePath": "staticwebassets\\Images\\services\\111aebb6-9115-4063-8492-7217a1ff2866.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\27f7aa95-2c03-46d4-9f38-63f9facdec5b.jpg",
+      "PackagePath": "staticwebassets\\Images\\services\\27f7aa95-2c03-46d4-9f38-63f9facdec5b.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\67996add-1109-410f-9143-94f229eefef2_image.jpeg",
+      "PackagePath": "staticwebassets\\Images\\services\\67996add-1109-410f-9143-94f229eefef2_image.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\79c7b6ce-f837-4263-b71a-5e62674e007c.png",
+      "PackagePath": "staticwebassets\\Images\\services\\79c7b6ce-f837-4263-b71a-5e62674e007c.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\7a03aa32-56d3-41a0-842d-f88444f612f4.jpg",
+      "PackagePath": "staticwebassets\\Images\\services\\7a03aa32-56d3-41a0-842d-f88444f612f4.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\Catering.jpg",
+      "PackagePath": "staticwebassets\\Images\\services\\Catering.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\Decoration.jpg",
+      "PackagePath": "staticwebassets\\Images\\services\\Decoration.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\Music.jpg",
+      "PackagePath": "staticwebassets\\Images\\services\\Music.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\Photography.jpeg",
+      "PackagePath": "staticwebassets\\Images\\services\\Photography.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\Video.png",
+      "PackagePath": "staticwebassets\\Images\\services\\Video.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\a302d06f-8aa6-4ef9-8dc8-53e3d97c97d5.png",
+      "PackagePath": "staticwebassets\\Images\\services\\a302d06f-8aa6-4ef9-8dc8-53e3d97c97d5.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\c58209a7-7068-46a4-a888-0e776cd25cce.jpg",
+      "PackagePath": "staticwebassets\\Images\\services\\c58209a7-7068-46a4-a888-0e776cd25cce.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\decoration.avif",
+      "PackagePath": "staticwebassets\\Images\\services\\decoration.avif"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\e91719ec-118c-4825-97a5-c6e89934ebf0.jpg",
+      "PackagePath": "staticwebassets\\Images\\services\\e91719ec-118c-4825-97a5-c6e89934ebf0.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\photo.png",
+      "PackagePath": "staticwebassets\\Images\\services\\photo.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\services\\security.jpg",
+      "PackagePath": "staticwebassets\\Images\\services\\security.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\socialgalary1.jpg",
+      "PackagePath": "staticwebassets\\Images\\socialgalary1.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\socialgalary2.jpg",
+      "PackagePath": "staticwebassets\\Images\\socialgalary2.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\socialgalary3.jpg",
+      "PackagePath": "staticwebassets\\Images\\socialgalary3.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\socialgalary4.jpg",
+      "PackagePath": "staticwebassets\\Images\\socialgalary4.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\tinywow_corporate2_78875010.png",
+      "PackagePath": "staticwebassets\\Images\\tinywow_corporate2_78875010.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\tinywow_music4_78875132.png",
+      "PackagePath": "staticwebassets\\Images\\tinywow_music4_78875132.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\tinywow_remove_watermark_photo_78872678.png",
+      "PackagePath": "staticwebassets\\Images\\tinywow_remove_watermark_photo_78872678.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\tinywow_remove_watermark_photo_78875301.png",
+      "PackagePath": "staticwebassets\\Images\\tinywow_remove_watermark_photo_78875301.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\veg.jpg",
+      "PackagePath": "staticwebassets\\Images\\veg.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\074b5924-54a5-4036-a1ee-8fa0766f7625.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\074b5924-54a5-4036-a1ee-8fa0766f7625.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\138a8c53-7a1a-4d45-9add-d217fddd61ca_image.jpeg",
+      "PackagePath": "staticwebassets\\Images\\venues\\138a8c53-7a1a-4d45-9add-d217fddd61ca_image.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\1fc94800-17f6-4383-854c-0c0be39b407b.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\1fc94800-17f6-4383-854c-0c0be39b407b.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\399696f0-5fa9-433f-b2d3-d58e240198e6.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\399696f0-5fa9-433f-b2d3-d58e240198e6.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\8eaf70fe-ee5d-491b-a145-df85476b4c70_Weddiong.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\8eaf70fe-ee5d-491b-a145-df85476b4c70_Weddiong.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\Venue2.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\Venue2.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\Venue5.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\Venue5.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\Venue7.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\Venue7.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\Venue8.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\Venue8.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\ce29deb9-eff7-4ebf-8a80-7c34f2d36567.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\ce29deb9-eff7-4ebf-8a80-7c34f2d36567.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\ec405863-5dbb-47ff-a826-4b853dc2c37f.jpeg",
+      "PackagePath": "staticwebassets\\Images\\venues\\ec405863-5dbb-47ff-a826-4b853dc2c37f.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\f8ae58b2-d49b-465c-9425-9f78f01a156f.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\f8ae58b2-d49b-465c-9425-9f78f01a156f.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\venue 10.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\venue 10.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\venue1.jpeg",
+      "PackagePath": "staticwebassets\\Images\\venues\\venue1.jpeg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\venue3.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\venue3.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\venue4.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\venue4.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\venues\\venue9.jpg",
+      "PackagePath": "staticwebassets\\Images\\venues\\venue9.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\Images\\videocamera.jpg",
+      "PackagePath": "staticwebassets\\Images\\videocamera.jpg"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\animate\\animate.css",
+      "PackagePath": "staticwebassets\\lib\\animate\\animate.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\animate\\animate.min.css",
+      "PackagePath": "staticwebassets\\lib\\animate\\animate.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\counterup\\counterup.min.js",
+      "PackagePath": "staticwebassets\\lib\\counterup\\counterup.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\easing\\easing.js",
+      "PackagePath": "staticwebassets\\lib\\easing\\easing.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\easing\\easing.min.js",
+      "PackagePath": "staticwebassets\\lib\\easing\\easing.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\lightbox\\css\\lightbox.min.css",
+      "PackagePath": "staticwebassets\\lib\\lightbox\\css\\lightbox.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\lightbox\\images\\close.png",
+      "PackagePath": "staticwebassets\\lib\\lightbox\\images\\close.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\lightbox\\images\\loading.gif",
+      "PackagePath": "staticwebassets\\lib\\lightbox\\images\\loading.gif"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\lightbox\\images\\next.png",
+      "PackagePath": "staticwebassets\\lib\\lightbox\\images\\next.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\lightbox\\images\\prev.png",
+      "PackagePath": "staticwebassets\\lib\\lightbox\\images\\prev.png"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\lightbox\\js\\lightbox.min.js",
+      "PackagePath": "staticwebassets\\lib\\lightbox\\js\\lightbox.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.min.css"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\waypoints\\links.php",
+      "PackagePath": "staticwebassets\\lib\\waypoints\\links.php"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\waypoints\\waypoints.min.js",
+      "PackagePath": "staticwebassets\\lib\\waypoints\\waypoints.min.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\wow\\wow.js",
+      "PackagePath": "staticwebassets\\lib\\wow\\wow.js"
+    },
+    {
+      "Id": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\wwwroot\\lib\\wow\\wow.min.js",
+      "PackagePath": "staticwebassets\\lib\\wow\\wow.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.EventOrganizer.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.EventOrganizer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.EventOrganizer.props",
+      "PackagePath": "build\\EventOrganizer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.EventOrganizer.props",
+      "PackagePath": "buildMultiTargeting\\EventOrganizer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.EventOrganizer.props",
+      "PackagePath": "buildTransitive\\EventOrganizer.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,120 @@
+﻿@model List<EventOrganizer.Models.PaymentListViewModel>
+
+@{
+    ViewData["Title"] = "Payment List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header bg-primary text-white text-center">
+        <h4>Payments List</h4>
+    </div>
+    <div class="card-body">
+        @if (!string.IsNullOrWhiteSpace(ViewBag.SuccessMsg))
+        {
+            <div class="alert alert-success">@ViewBag.SuccessMsg</div>
+        }
+        @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMsg))
+        {
+            <div class="alert alert-danger">@ViewBag.ErrorMsg</div>
+        }
+
+        <table class="table table-bordered table-hover table-responsive">
+            <thead class="table-dark">
+                <tr>
+                    <th>User</th>
+                    <th>Event</th>
+                    <th>Amount</th>
+                    <th>Method</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                    <th>Card</th>
+                    <th>Date</th>
+                    <th>Transaction ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UserName</td>
+                        <td>@item.EventName</td>
+                        <td>Rs.@item.Amount</td>
+                        <td>@item.PaymentMethod</td>
+                        <td>@item.PaymentStatus</td>
+                        <td>@item.PaymentType</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.CardNumber) && item.CardNumber.Length >= 4)
+                            {
+                                <span>**** **** **** @item.CardNumber.Substring(item.CardNumber.Length - 4)</span>
+                            }
+                            else
+                            {
+                                <span>-</span>
+                            }
+                        </td>
+                        <td>@item.PaymentDate?.ToString("dd-MM-yyyy")</td>
+                        <td>@item.TransactionId</td>
+                        <td>
+                            <button type="button" class="btn btn-info btn-sm" 
+                                onclick="openPaymentModal('@item.UserName', '@item.EventName', 'Rs.@item.Amount', '@item.PaymentMethod', '@item.PaymentStatus', '@item.PaymentType', '@(item.CardNumber?.Substring(item.CardNumber.Length - 4) ?? "-")', '@item.PaymentDate?.ToString("dd-MM-yyyy")', '@item.TransactionId')">
+                                View
+                            </button>
+
+                            <a href="#" onclick="confirmDelete('@Url.Action("DeletePayment", "Admin", new { id = item.PaymentId })')" class="btn btn-danger btn-sm mt-1">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="paymentModalLabel">Payment Details</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>User:</strong> <span id="modalUser"></span></p>
+                <p><strong>Event:</strong> <span id="modalEvent"></span></p>
+                <p><strong>Amount:</strong> <span id="modalAmount"></span></p>
+                <p><strong>Method:</strong> <span id="modalMethod"></span></p>
+                <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+                <p><strong>Type:</strong> <span id="modalType"></span></p>
+                <p><strong>Card:</strong> <span id="modalCard"></span></p>
+                <p><strong>Date:</strong> <span id="modalDate"></span></p>
+                <p><strong>Transaction ID:</strong> <span id="modalTransaction"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function openPaymentModal(user, eventName, amount, method, status, type, card, date, transaction) {
+            document.getElementById('modalUser').innerText = user;
+            document.getElementById('modalEvent').innerText = eventName;
+            document.getElementById('modalAmount').innerText = amount;
+            document.getElementById('modalMethod').innerText = method;
+            document.getElementById('modalStatus').innerText = status;
+            document.getElementById('modalType').innerText = type;
+            document.getElementById('modalCard').innerText = "**** **** **** " + card;
+            document.getElementById('modalDate').innerText = date;
+            document.getElementById('modalTransaction').innerText = transaction;
+
+            var myModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+            myModal.show();
+        }
+
+        function confirmDelete(url) {
+            if (confirm("Are you sure you want to delete this payment?")) {
+                window.location.href = url;
+            }
+        }
+    </script>
+}

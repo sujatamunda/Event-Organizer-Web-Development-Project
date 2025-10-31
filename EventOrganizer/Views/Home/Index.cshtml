@@ -1,0 +1,597 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Common.cshtml";
+}
+
+
+<style>
+    .event-img {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+    }
+
+        .event-img img {
+            height: 250px; /* adjust as needed */
+            object-fit: cover;
+            width: 100%;
+            border-radius: 10px; /* optional, already present */
+        }
+
+        /* .event-img img {
+            width: 100%;
+            transition: transform 0.3s ease;
+        } */
+
+        .event-img:hover img {
+            transform: scale(1.1);
+        }
+
+    .event-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 15px;
+    }
+
+    .event-img:hover .event-overlay {
+        opacity: 1;
+    }
+
+    .event-overlay h4 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    .event-overlay a {
+        font-size: 2rem;
+        color: #ffffff;
+        transition: color 0.3s;
+    }
+
+    .testimonial-item {
+        min-height: 250px; /* or fixed height like 280px */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+    }
+        .testimonial-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+
+        .event-overlay a:hover {
+            color: #f8d210;
+        }
+</style>
+
+
+
+<!-- Modal Search Start -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center">
+                <div class="input-group w-75 mx-auto d-flex">
+                    <input type="search" class="form-control bg-transparent p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Search End -->
+<!-- Hero Start -->
+<!-- Hero Carousel Start -->
+<div class="container-fluid position-relative text-white p-0">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-bg" style="background-image: url('/Images/Weddiong.jpg');"></div>
+                <div class="hero-content text-center">
+                    @* <small class="d-inline-block fw-bold text-light text-uppercase bg-dark border border-light rounded-pill px-4 py-1 mb-4">
+                        Welcome to Utsav
+                    </small> *@
+                    <h1 class="display-1 mb-4 text-white animated bounceInDown">
+                        Looking for the Most Creative & Innovative Event Planners in Odisha?
+                    </h1>
+@*                     @Html.ActionLink("Book Now", "BookNow", "Home", null, new { @class = "btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5 me-4" } )
+ *@                   
+                    @{
+                        var isLoggedIn = Context.Session.GetInt32("UserId") != null;
+                    }
+
+                    @if (isLoggedIn)
+                    {
+                        <!-- User is logged in: Show 'Book Now' -->
+                        <a asp-controller="User" asp-action="CreateBooking" class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5 me-4">
+                            Book Now
+                        </a>
+                    }
+                    else
+                    {
+                        <!-- User is not logged in: Show 'Login to Book' -->
+                        <a asp-controller="Login" asp-action="Index" asp-route-returnUrl="/User/CreateBooking" class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5">
+                            Login to Book
+                        </a>
+                    }
+
+
+
+
+                    <a href="/Home/KnowMore" class="btn btn-primary border-0 rounded-pill py-3 px-4 px-md-5">Know More</a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="carousel-bg" style="background-image: url('/Images/image9.jpg');"></div>
+                <div class="hero-content text-center">
+                    <h1 class="display-1 text-white animated bounceInLeft">Make Your Event Memorable with Us!</h1>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="carousel-bg" style="background-image: url('/Images/culture1.jpg');"></div>
+                <div class="hero-content text-center">
+                    <h1 class="display-1 text-white animated bounceInRight">We Bring Your Dreams to Life!</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</div>
+
+<!-- Hero Carousel End -->
+
+<!-- About Satrt -->
+<div class="container-fluid py-6">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
+                <img src="~/Images/WeddingPlanners.png" class="img-fluid rounded" style="height: 450px; width: 800px; object-fit: cover;" alt="">
+            </div>
+            <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">About Us</small>
+                @* <h1 class="display-5 mb-4">Trusted By 200 + satisfied clients</h1> *@
+                <p class="mb-4 text-justify">
+                    We specialize in turning your moments into lasting memories. 
+                    As a premier event management company, we are passionate about planning and executing 
+                    events that are not only seamless but also unforgettable. From elegant weddings and corporate
+                    gatherings to themed parties and cultural celebrations, our team of creative professionals handles 
+                    every detail with precision and care.We believe that every event tells a story — your story — and 
+                    our mission is to bring that story to life with innovation, style, and excellence. With a strong 
+                    network of vendors, expert planners, and a commitment to customer satisfaction, we ensure each event 
+                    reflects your unique personality and exceeds your expectations. Let us handle the stress while you enjoy 
+                    the success of your special day. Every event becomes an experience to remember.
+
+
+                </p>
+
+                <div class="row g-4 text-dark mb-5">
+                    <div class="col-sm-6">
+                        <i class="fas fa-share text-primary me-2"></i>Fresh and Fast food Delivery
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fas fa-share text-primary me-2"></i>24/7 Customer Support
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fas fa-share text-primary me-2"></i>Easy Customization Options
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fas fa-share text-primary me-2"></i>Delicious Deals for Delicious Meals
+                    </div>
+                </div>
+                <a href="" class="btn btn-primary py-3 px-5 rounded-pill">About Us<i class="fas fa-arrow-right ps-2"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About End -->
+<!-- Events Start -->
+<div class="container-fluid event py-6">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small class="d-inline-block fw-bold text-dark text-uppercase bg-primary border border-primary rounded-pill px-4 py-1 mb-3">Latest Events</small>
+            <h1 class="display-5 mb-5">Our Social & Professional Events Gallery</h1>
+        </div>
+        <div class="tab-class text-center">
+            <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 wow bounceInUp" data-wow-delay="0.1s">
+                <li class="nav-item p-2">
+                    <a class="d-flex mx-2 py-2 border border-primary bg-primary rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+                        <span class="text-dark" style="width: 150px;"> Events</span>
+                    </a>
+                </li>
+              
+            </ul>
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="~/Images/image10.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Wedding</h4>
+                                            <a href="~/Images/image10.jpg" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="~/Images/corporate1.jpeg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Corporate</h4>
+                                            <a href="~/Images/corporate1.jpeg" data-lightbox="event-2" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="~/Images/birthday1.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">birthday Party</h4>
+                                            <a href="~/Images/birthday4.jpg" data-lightbox="event-3" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="~/Images/culture1.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Cultural</h4>
+                                            <a href="~/Images/culture1.jpg" data-lightbox="event-4" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="~/Images/reception1.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Reception</h4>
+                                            <a href="~/Images/reception1.jpg" data-lightbox="event-5" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.3s">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="~/Images/destination2.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Destination Wedding</h4>
+                                            <a href="~/Images/destination1.jpg" data-lightbox="event-6" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.5s">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="~/Images/party1.png" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Parties</h4>
+                                            <a href="~/Images/party1.png" data-lightbox="event-7" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.7s">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="~/Images/conference2.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Conference</h4>
+                                            <a href="~/Images/confrence.jpg" data-lightbox="event-17" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-2" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="~/Images/image12.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Wedding</h4>
+                                            <a href="~/Images/image12.jpg" data-lightbox="event-8" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="~/Images/image13.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Wedding</h4>
+                                            <a href="~/Images/image13.jpg" data-lightbox="event-9" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-3" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="img/event-3.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Corporate</h4>
+                                            <a href="img/01.jpg" data-lightbox="event-10" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="img/event-4.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Corporate</h4>
+                                            <a href="img/01.jpg" data-lightbox="event-11" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-4" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="img/event-5.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Cocktail</h4>
+                                            <a href="img/01.jpg" data-lightbox="event-12" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="img/event-6.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Cocktail</h4>
+                                            <a href="img/01.jpg" data-lightbox="event-13" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-5" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="img/event-7.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Buffet</h4>
+                                            <a href="img/01.jpg" data-lightbox="event-14" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="event-img position-relative">
+                                        <img class="img-fluid rounded w-100" src="img/event-8.jpg" alt="">
+                                        <div class="event-overlay d-flex flex-column p-4">
+                                            <h4 class="me-auto">Buffet</h4>
+                                            <a href="img/01.jpg" data-lightbox="event-15" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+<!-- Events End -->
+<!-- VIDEO start -->
+@* <<div class="container py-5">
+    <div class="row align-items-center">
+        <!-- Left Column: YouTube Video -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="ratio ratio-16x9 shadow rounded">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Event Highlights"
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Right Column: Text Content -->
+        <div class="col-lg-6">
+            <h2 class="mb-3">Experience the Magic of Our Events</h2>
+            <p class="mb-4">
+                Get a glimpse into the unforgettable experiences we create. This highlight video showcases our expertise in managing grand weddings, corporate events, themed parties, and more. From concept to execution, we bring your vision to life with perfection.
+            </p>
+            <a href="/About" class="btn btn-primary px-4 py-2 rounded-pill">
+                Learn More About Us <i class="fas fa-arrow-right ps-2"></i>
+            </a>
+        </div>
+    </div>
+</div>
+ *@
+
+
+<div class="container-fluid py-6">
+    <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Testimonial</small>
+            <h1 class="display-5 mb-5">What Our Customers Say!</h1>
+        </div>
+        <div class="owl-carousel owl-theme testimonial-carousel testimonial-carousel-1 mb-4 wow bounceInUp" data-wow-delay="0.1s">
+            @if (ViewBag.Reviews != null)
+            {
+                foreach (var review in (List<EventOrganizer.Models.ReviewTestimonial>)ViewBag.Reviews)
+                {
+                    <div class="testimonial-item rounded bg-light">
+                        <div class="d-flex mb-3">
+                            <img src="~/Images/Profile.jpeg" class="img-fluid rounded-circle flex-shrink-0" alt="User">
+                            <div class="position-absolute" style="top: 15px; right: 20px;">
+                                <i class="fa fa-quote-right fa-2x"></i>
+                            </div>
+                            <div class="ps-3 my-auto">
+                                <h4 class="mb-0">@review.UserName</h4>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="d-flex">
+                                @{
+                                    for (int i = 1; i <= 5; i++)
+                                    {
+                                        if (i <= review.Rating)
+                                        {
+                                            <i class="fas fa-star text-primary"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="far fa-star text-primary"></i>
+                                        }
+                                    }
+                                }
+                            </div>
+                            <p class="fs-5 m-0 pt-3">@review.ReviewText</p>
+                            <small class="text-muted">@review.CreatedAt.ToString("dd MMM yyyy")</small>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="text-center text-muted">No reviews available.</div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+<!-- Map start -->
+<div class="row">
+    <!-- Google Map (6 columns) -->
+    <div class="col-lg-6">
+        <div class="h-100 rounded p-3 border">
+            <iframe class="rounded w-100"
+                    style="height: 400px;"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.708214211357!2d83.97689379999999!3d20.953252999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a18cd1a57f27247%3A0x55a2b8b8bb2a32ab!2sSambalpur%2C%20Odisha!5e0!3m2!1sen!2sin!4v1616200958949!5m2!1sen!2sin"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+
+    <!-- Message Box (6 columns) -->
+    <div class="col-lg-6">
+        <div class="h-100  rounded p-3 border">
+            <label for="messageBox" class="form-label fw-bold">Leave a Message:</label>
+            <textarea id="messageBox" class="form-control mb-2" rows="8" placeholder="Type your message here..."></textarea>
+            <button class="btn btn-primary w-100">Send Message</button>
+        </div>
+    </div>
+</div>
+<!-- Map End -->
+<!-- Blog Start -->
+@* <div class="container-fluid blog py-6">
+        <div class="container">
+            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Blog</small>
+                <h1 class="display-5 mb-5">Be First Who Read News</h1>
+            </div>
+            <div class="row gx-4 justify-content-center">
+                <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
+                    <div class="blog-item">
+                        <div class="overflow-hidden rounded">
+                            <img src="img/blog-1.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="blog-content mx-4 d-flex rounded bg-light">
+                            <div class="text-dark bg-primary rounded-start">
+                                <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                                    <p class="fw-bold mb-0">16</p>
+                                    <p class="fw-bold mb-0">Sep</p>
+                                </div>
+                            </div>
+                            <a href="#" class="h5 lh-base my-auto h-100 p-3">How to get more test in your food from</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.3s">
+                    <div class="blog-item">
+                        <div class="overflow-hidden rounded">
+                            <img src="img/blog-2.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="blog-content mx-4 d-flex rounded bg-light">
+                            <div class="text-dark bg-primary rounded-start">
+                                <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                                    <p class="fw-bold mb-0">16</p>
+                                     <p class="fw-bold mb-0">Sep</p>
+                                </div>
+                            </div>
+                            <a href="#" class="h5 lh-base my-auto h-100 p-3">How to get more test in your food from</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.5s">
+                    <div class="blog-item">
+                        <div class="overflow-hidden rounded">
+                            <img src="img/blog-3.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="blog-content mx-4 d-flex rounded bg-light">
+                            <div class="text-dark bg-primary rounded-start">
+                                <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
+                                    <p class="fw-bold mb-0">16</p>
+                                    <p class="fw-bold mb-0">Sep</p>
+                                </div>
+                            </div>
+                            <a href="#" class="h5 lh-base my-auto h-100 p-3">How to get more test in your food from</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> *@
+<!-- Blog End -->
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>

@@ -1,0 +1,178 @@
+﻿@* @model EventOrganizer.Models.Reviews
+
+@{
+    ViewData["Title"] = "Add Review";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="card-body text-center">
+    <h4 class="mb-3 text-white">EVENT ORGANIZER</h4>
+    <h6 class="mb-3 text-white">Add Review</h6>
+
+   @*  @using (Html.BeginForm( "Reviews","User", FormMethod.Post, null))
+    {
+        <div class="form-group mb-3">
+            @Html.TextBoxFor(a => a.UserId, new { @class = "form-control", @placeholder = "User ID", @type = "number", @required = "required" })
+            @Html.ValidationMessageFor(a => a.UserId, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.TextBoxFor(a => a.EventId, new { @class = "form-control", @placeholder = "Event ID", @type = "number", @required = "required" })
+            @Html.ValidationMessageFor(a => a.EventId, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.TextAreaFor(a => a.ReviewText, 5, 50, new { @class = "form-control", @placeholder = "Write your review here...", @required = "required" })
+            @Html.ValidationMessageFor(a => a.ReviewText, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.TextBoxFor(a => a.CreatedAt, new { @class = "form-control", @type = "datetime-local", @required = "required" })
+            @Html.ValidationMessageFor(a => a.CreatedAt, null, new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn gradient-btn w-100">Submit Review</button> *@
+
+  @*   @using (Html.BeginForm("Reviews", "User", FormMethod.Post, null))
+    {
+        <div class="form-group mb-3">
+            @Html.TextBoxFor(a => a.UserId, new { @class = "form-control", @placeholder = "User ID", @type = "number", @required = "required" })
+            @Html.ValidationMessageFor(a => a.UserId, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.TextBoxFor(a => a.EventId, new { @class = "form-control", @placeholder = "Event ID", @type = "number", @required = "required" })
+            @Html.ValidationMessageFor(a => a.EventId, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.TextAreaFor(a => a.ReviewText, 5, 50, new { @class = "form-control", @placeholder = "Write your review here...", @required = "required" })
+            @Html.ValidationMessageFor(a => a.ReviewText, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.TextBoxFor(a => a.Rating, new { @class = "form-control", @type = "number", @min = 1, @max = 5, @placeholder = "Rating (1-5)", @required = "required" })
+            @Html.ValidationMessageFor(a => a.Rating, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.TextBoxFor(a => a.CreatedAt, new { @class = "form-control", @type = "datetime-local", @required = "required" })
+            @Html.ValidationMessageFor(a => a.CreatedAt, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.TextBoxFor(a => a.VenueId, new { @class = "form-control", @type = "number", @placeholder = "Venue ID (optional)" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.TextBoxFor(a => a.ServiceId, new { @class = "form-control", @type = "number", @placeholder = "Service ID (optional)" })
+        </div>
+
+        <button type="submit" class="btn gradient-btn w-100">Submit Review</button>
+
+        
+    }
+
+        @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMsg))
+        {
+            <div class="row mt-3">
+                <div class="col-12 bg-danger text-white text-center p-2">
+                    @ViewBag.ErrorMsg
+                </div>
+            </div>
+        }
+        @if (!string.IsNullOrWhiteSpace(ViewBag.SuccessMsg))
+        {
+            <div class="row mt-3">
+                <div class="col-12 bg-success text-white text-center p-2">
+                    @ViewBag.SuccessMsg
+                </div>
+            </div>
+        }
+    }
+</div> *@ 
+
+
+@model EventOrganizer.Models.Reviews
+
+@{
+    ViewData["Title"] = "Add Review";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="row g-0 d-flex align-items-stretch" style="min-height: 500px;">
+                    <!-- Left Side Image -->
+                    <div class="col-md-6 p-0 d-none d-md-block">
+                        <img src="~/images/review-banner.jpg" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Review Image" />
+                    </div>
+
+                    <!-- Right Side Form -->
+                    <div class="col-md-6 bg-light p-5 d-flex align-items-center">
+                        <div class="w-100">
+                            <h4 class="text-center mb-4 text-primary">Add Your Review</h4>
+
+                            @using (Html.BeginForm("Reviews", "User", FormMethod.Post))
+                            {
+                                <div class="mb-3">
+                                    @Html.LabelFor(a => a.UserId)
+                                    @Html.TextBoxFor(a => a.UserId, new { @class = "form-control", @type = "number", @required = "required" })
+                                    @Html.ValidationMessageFor(a => a.UserId, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="mb-3">
+                                    @Html.LabelFor(a => a.EventId)
+                                    @Html.TextBoxFor(a => a.EventId, new { @class = "form-control", @type = "number", @required = "required" })
+                                    @Html.ValidationMessageFor(a => a.EventId, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="mb-3">
+                                    @Html.LabelFor(a => a.ReviewText)
+                                    @Html.TextAreaFor(a => a.ReviewText, 5, 50, new { @class = "form-control", @placeholder = "Write your review...", @required = "required" })
+                                    @Html.ValidationMessageFor(a => a.ReviewText, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="mb-3">
+                                    @Html.LabelFor(a => a.Rating)
+                                    @Html.TextBoxFor(a => a.Rating, new { @class = "form-control", @type = "number", @min = 1, @max = 5, @placeholder = "Rating (1-5)", @required = "required" })
+                                    @Html.ValidationMessageFor(a => a.Rating, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="mb-3">
+                                    @Html.LabelFor(a => a.CreatedAt)
+                                    @Html.TextBoxFor(a => a.CreatedAt, new { @class = "form-control", @type = "datetime-local", @required = "required" })
+                                    @Html.ValidationMessageFor(a => a.CreatedAt, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="mb-3">
+                                    @Html.LabelFor(a => a.VenueId)
+                                    @Html.TextBoxFor(a => a.VenueId, new { @class = "form-control", @type = "number", @placeholder = "Venue ID (optional)" })
+                                </div>
+
+                                <div class="mb-4">
+                                    @Html.LabelFor(a => a.ServiceId)
+                                    @Html.TextBoxFor(a => a.ServiceId, new { @class = "form-control", @type = "number", @placeholder = "Service ID (optional)" })
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100">Submit Review</button>
+                            }
+
+                            @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMsg))
+                            {
+                                <div class="alert alert-danger mt-3">@ViewBag.ErrorMsg</div>
+                            }
+
+                            @if (!string.IsNullOrWhiteSpace(ViewBag.SuccessMsg))
+                            {
+                                <div class="alert alert-success mt-3">@ViewBag.SuccessMsg</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

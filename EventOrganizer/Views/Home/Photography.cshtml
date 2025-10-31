@@ -1,0 +1,92 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<section class="hero text-center">
+    <div class="container">
+        <h1 class="display-4">Capture Every Moment</h1>
+        <p class="lead">Professional Photography for Every Occasion</p>
+        <a href="#contact" class="btn btn-primary btn-lg">Book a Session</a>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="services py-5 text-center">
+    <div class="container">
+        <h2 class="mb-4">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <i class="bi bi-camera"></i>
+                <h5 class="mt-2">Wedding Photography</h5>
+                <p>Memories that last a lifetime, captured beautifully.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-camera-video"></i>
+                <h5 class="mt-2">Event Coverage</h5>
+                <p>Complete photography & videography for events and parties.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-person-bounding-box"></i>
+                <h5 class="mt-2">Portraits & Studio</h5>
+                <p>Creative studio shoots for individuals and families.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery -->
+<section class="gallery py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Gallery</h2>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <img src="~/Images/photocamera.jpg" class="img-fluid rounded" alt="Gallery Image">
+            </div>
+            <div class="col-md-4">
+                <img src="~/Images/videocamera.jpg" class="img-fluid rounded" alt="Gallery Image">
+            </div>
+            <div class="col-md-4">
+                <img src="~/Images/potrait.jpeg" class="img-fluid rounded" alt="Gallery Image">
+            </div>
+        </div>
+    </div>
+</section>
+
+@* <!-- Testimonials -->
+<section class="testimonials py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">What Clients Say</h2>
+        <div id="carouselTestimonials" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner text-center">
+                <div class="carousel-item active">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="testimonial-img mb-3" alt="Client 1">
+                    <blockquote class="blockquote">
+                        <p>"Absolutely amazing work! They captured our wedding perfectly."</p>
+                        <footer class="blockquote-footer">Priya Sharma</footer>
+                    </blockquote>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://randomuser.me/api/portraits/men/46.jpg" class="testimonial-img mb-3" alt="Client 2">
+                    <blockquote class="blockquote">
+                        <p>"Very professional and creative photographer. Highly recommended!"</p>
+                        <footer class="blockquote-footer">Rahul Mehta</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonials" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonials" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+</section> *@
+<!-- Contact CTA Section -->
+<div class="text-center py-5">
+    <h2 class="mb-4">Ready to Plan Photography?</h2>
+    <p class="mb-4">Contact us today and let’s discuss how we can make your event a success!</p>
+    <a href="@Url.Action("Contact", "Home")" class="btn btn-success btn-lg px-5 py-3 rounded-pill">Get in Touch</a>
+</div>

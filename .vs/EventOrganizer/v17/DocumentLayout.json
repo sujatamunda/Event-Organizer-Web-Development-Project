@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|e:\\asp dot core project\\eventorganizer\\eventorganizer\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|solutionrelative:eventorganizer\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|e:\\asp dot core project\\eventorganizer\\eventorganizer\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|solutionrelative:eventorganizer\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|e:\\asp dot core project\\eventorganizer\\eventorganizer\\views\\shared\\_common.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|solutionrelative:eventorganizer\\views\\shared\\_common.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|e:\\asp dot core project\\eventorganizer\\eventorganizer\\views\\home\\venues.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|solutionrelative:eventorganizer\\views\\home\\venues.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|e:\\asp dot core project\\eventorganizer\\eventorganizer\\views\\home\\gallery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|solutionrelative:eventorganizer\\views\\home\\gallery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|e:\\asp dot core project\\eventorganizer\\eventorganizer\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|solutionrelative:eventorganizer\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|e:\\asp dot core project\\eventorganizer\\eventorganizer\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|solutionrelative:eventorganizer\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|e:\\asp dot core project\\eventorganizer\\eventorganizer\\views\\home\\birthday.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|solutionrelative:eventorganizer\\views\\home\\birthday.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|e:\\asp dot core project\\eventorganizer\\eventorganizer\\views\\explore\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9613742A-49C6-4B2A-A437-F866F127E078}|EventOrganizer\\EventOrganizer.csproj|solutionrelative:eventorganizer\\views\\explore\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "EventOrganizer\\Controllers\\UserController.cs",
+              "ToolTip": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Controllers\\UserController.cs",
+              "RelativeToolTip": "EventOrganizer\\Controllers\\UserController.cs",
+              "ViewState": "AgIAADUDAAAAAAAAAAAcwEEDAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T08:17:01.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Common.cshtml",
+              "DocumentMoniker": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Shared\\_Common.cshtml",
+              "RelativeDocumentMoniker": "EventOrganizer\\Views\\Shared\\_Common.cshtml",
+              "ToolTip": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Shared\\_Common.cshtml",
+              "RelativeToolTip": "EventOrganizer\\Views\\Shared\\_Common.cshtml",
+              "ViewState": "AgIAABcBAAAAAAAAAAAAAC8BAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T07:48:59.861Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Venues.cshtml",
+              "DocumentMoniker": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Home\\Venues.cshtml",
+              "RelativeDocumentMoniker": "EventOrganizer\\Views\\Home\\Venues.cshtml",
+              "ToolTip": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Home\\Venues.cshtml",
+              "RelativeToolTip": "EventOrganizer\\Views\\Home\\Venues.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T06:42:48.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Gallery.cshtml",
+              "DocumentMoniker": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Home\\Gallery.cshtml",
+              "RelativeDocumentMoniker": "EventOrganizer\\Views\\Home\\Gallery.cshtml",
+              "ToolTip": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Home\\Gallery.cshtml",
+              "RelativeToolTip": "EventOrganizer\\Views\\Home\\Gallery.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T06:42:37.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "EventOrganizer\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "EventOrganizer\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T06:42:23.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "EventOrganizer\\Views\\Home\\About.cshtml",
+              "ToolTip": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "EventOrganizer\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T06:40:09.764Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Birthday.cshtml",
+              "DocumentMoniker": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Home\\Birthday.cshtml",
+              "RelativeDocumentMoniker": "EventOrganizer\\Views\\Home\\Birthday.cshtml",
+              "ToolTip": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Home\\Birthday.cshtml",
+              "RelativeToolTip": "EventOrganizer\\Views\\Home\\Birthday.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T06:40:08.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Explore\\Index.cshtml",
+              "RelativeDocumentMoniker": "EventOrganizer\\Views\\Explore\\Index.cshtml",
+              "ToolTip": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Views\\Explore\\Index.cshtml",
+              "RelativeToolTip": "EventOrganizer\\Views\\Explore\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T04:57:03.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "EventOrganizer\\Controllers\\AdminController.cs",
+              "ToolTip": "E:\\ASP DOT CORE PROJECT\\EventOrganizer\\EventOrganizer\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "EventOrganizer\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAALsEAAAAAAAAAAAiwMwEAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T10:44:45.378Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

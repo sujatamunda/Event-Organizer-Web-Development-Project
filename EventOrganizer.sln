@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventOrganizer", "EventOrganizer\EventOrganizer.csproj", "{9613742A-49C6-4B2A-A437-F866F127E078}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventOrganizer.Tests", "EventOrganizer.Tests\EventOrganizer.Tests.csproj", "{F6BEB00E-8A28-4E23-896A-8480F6528B46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9613742A-49C6-4B2A-A437-F866F127E078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9613742A-49C6-4B2A-A437-F866F127E078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9613742A-49C6-4B2A-A437-F866F127E078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9613742A-49C6-4B2A-A437-F866F127E078}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6BEB00E-8A28-4E23-896A-8480F6528B46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6BEB00E-8A28-4E23-896A-8480F6528B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6BEB00E-8A28-4E23-896A-8480F6528B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6BEB00E-8A28-4E23-896A-8480F6528B46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

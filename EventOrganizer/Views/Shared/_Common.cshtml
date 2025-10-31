@@ -1,0 +1,420 @@
+﻿
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Event Organizer</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="~/lib/owlcarousel/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+
+    <!-- Template Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
+
+    <style>
+        /* Navbar Styling */
+        .nav-bar {
+            background: linear-gradient(to right, #5A189A, #9D4EDD);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav .nav-link {
+            color: cornsilk !important;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+        }
+/* 
+            .navbar-nav .nav-link:hover {
+                color: #FFD700 !important; /* Gold highlight on hover */
+            } */
+
+        .carousel-item {
+            position: relative;
+            width: 100%;
+            height: 100vh; 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+       /*  .carousel-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+ */
+
+          .carousel-bg {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }  
+
+        .carousel-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh; /* Full screen height */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1; /* Send image behind text */
+        }
+
+        .carousel-item {
+            position: relative;
+            height: 100vh; /* Ensure it takes full screen height */
+        }
+
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            width: 80%;
+            z-index: 1; /* Keep text above the background */
+        }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+                font-weight: bold;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Improves readability */
+            }
+
+
+        
+
+
+        /* Footer Styling */
+        .footer {
+            background: linear-gradient(to right, #3C096C, #5A189A);
+            color: white;
+            padding: 40px 0;
+        }
+
+            .footer a {
+                color: #FFD700 !important; /* Gold highlight for links */
+                transition: all 0.3s ease-in-out;
+            }
+
+                .footer a:hover {
+                    color: #ffffff !important;
+                }
+
+        /* Copyright Section */
+        .copyright {
+            background: #3C096C !important;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background-color: #9D4EDD;
+            border-color: #5A189A;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-primary:hover {
+                background-color: #5A189A;
+                border-color: #3C096C;
+            }
+
+        /* Search Button */
+        .btn-search {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+            .btn-search:hover {
+                background-color: #FFD700;
+                color: #5A189A;
+            }
+
+
+    </style>
+</head>
+
+<body>
+
+   
+    <!-- Navbar start -->
+    @* <div class="container-fluid nav-bar">
+        <div class="container">
+            <nav class="navbar navbar-light navbar-expand-lg py-4">
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                    <img src="~/Images/eventlogo.jpg" alt="SES Logo" width="40" height="40" class="d-inline-block align-text-top rounded-circle">
+                    <span style="color: dodgerblue; font-weight: bold; font-size: 32px; text-shadow: 2px 2px 4px #000000;">
+                        EventOrganizer
+                    </span> *@
+
+        <div class="container-fluid nav-bar">
+         <div class="container">
+            <nav class="navbar navbar-light navbar-expand-lg py-4">
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand d-flex align-items-center">
+                    <img src="~/Images/eventlogo.jpg" alt="SES Logo" width="50" height="50" class="rounded-circle me-2">
+                    <span style="color: dodgerblue; font-weight: bold; font-size: 32px; text-shadow: 2px 2px 4px #000000;">
+                        EventOrganizer
+                    </span>
+                
+@*                     <img src="~/Images/logo.jpeg" alt="Alternate Text" / style="height:50px;">
+ *@                   @*  <h1 class="text-primary fw-bold mb-0">Event<span class="text-dark">Organizer</span></h1> *@
+                   @*  <h1 class="fw-bold mb-0" style="color: #0d6efd;">Event<span>Organizer</span></h1> *@
+                    @* <span style="color: dodgerblue; font-weight: bold; font-size: 32px; text-shadow: 2px 2px 4px #000000;">
+                        EventOrganizer
+                    </span> *@
+
+
+
+
+                </a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-item nav-link active" })
+                        @Html.ActionLink("About", "About", "Home", null, new { @class = "nav-item nav-link" })
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                            <div class="dropdown-menu bg-primary">
+                                <!-- General Services Page -->
+@*                                 @Html.ActionLink("Our Services", "Services", "Home", null, new { @class = "dropdown-item" })
+ *@
+                                <!-- Individual Service Pages -->
+                                @Html.ActionLink("Wedding Planner", "Wedding", "Home", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Birthday Parties", "Birthday", "Home", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Corporate Event", "Corporate", "Home", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Destination Wedding", "Destination", "Home", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Catering Services", "Catering", "Home", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Music & Entertainment", "Entertainment", "Home", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Photography", "Photography", "Home", null, new { @class = "dropdown-item" })
+                                @* @Html.ActionLink("Videography", "Videography", "Home", null, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Private Parties", "Privateparties", "Home", null, new { @class = "dropdown-item" })
+ *@
+
+
+                            </div>
+                        </div>
+
+                        @Html.ActionLink("Venues", "Venues", "Home", null, new { @class = "nav-item nav-link" })
+                        @Html.ActionLink("Gallery", "Gallery", "Home", null, new { @class = "nav-item nav-link" })
+                        @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-item nav-link" })
+                        @Html.ActionLink("Login", "Index", "Login", null, new { @class = "btn btn-primary" })
+
+                    </div>
+
+                    <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                   @*  @Html.ActionLink("Book Now", "BookNow", "Home", null, new { @class = "btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill" }) *@
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Navbar End -->
+    <!-- Main Content Area -->
+    <div class="container-fluid">
+        @RenderBody()  <!-- Page-Specific Content Will be Rendered Here -->
+    </div>
+
+
+
+<!-- Footer Start -->
+<div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h1 class="text-primary">Event<span class="text-primary">Organizer</span></h1>
+                    <p class="lh-lg mb-4">There cursus massa at urnaaculis estieSed aliquamellus vitae ultrs condmentum leo massamollis its estiegittis miristum.</p>
+                    <div class="footer-icon d-flex">
+                        <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href=""><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-primary btn-sm-square me-2 rounded-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-primary btn-sm-square rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="mb-4">Special Facilities</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>Event</a>
+                        <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>Event</a>
+                        <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>Event</a>
+                        <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>Event</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="mb-4">Contact Us</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i> Sambalpur, Odisha</p>
+                        <p><i class="fa fa-phone-alt text-primary me-2"></i> +91 9937564567</p>
+                        <p><i class="fas fa-envelope text-primary me-2"></i> sujata@gmail.com</p>
+                        <p><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</p>
+                    </div>
+                </div>
+            </div>
+            @* <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="mb-4">Social Gallery</h4>
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <img src="~/Images/birthday1.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img src="~/Images/socialgalary1.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img src="~/Images/corporate1.jpeg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img src="~/Images/culture1.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img src="~/Images/catering1.png" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img src="~/Images/socialgalary2.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div> *@
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="mb-4">Social Gallery</h4>
+                        <div class="row g-2">
+                            <div class="col-4">
+                                <img src="~/Images/birthday1.jpg" class="img-fluid rounded-circle border border-primary p-2 gallery-item" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img src="~/Images/socialgalary1.jpg" class="img-fluid rounded-circle border border-primary p-2 gallery-item" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img src="~/Images/corporate1.jpeg" class="img-fluid rounded-circle border border-primary p-2 gallery-item" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img src="~/Images/culture1.jpg" class="img-fluid rounded-circle border border-primary p-2 gallery-item" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img src="~/Images/catering1.png" class="img-fluid rounded-circle border border-primary p-2 gallery-item" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img src="~/Images/socialgalary2.jpg" class="img-fluid rounded-circle border border-primary p-2 gallery-item" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img id="modalImage" src="" class="img-fluid rounded" alt="Gallery Image">
+                </div>
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer End -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const galleryItems = document.querySelectorAll(".gallery-item");
+            const modal = new bootstrap.Modal(document.getElementById("imageModal"));
+            const modalImage = document.getElementById("modalImage");
+
+            galleryItems.forEach(item => {
+                item.addEventListener("click", function () {
+                    modalImage.src = this.src.replace("~/", "/");
+                    modal.show();
+                });
+            });
+        });
+    </script>
+
+<!-- Copyright Start -->
+<div class="container-fluid copyright bg-dark py-4">
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center py-3 bg-purple">
+                <div class="text-center">
+                    <span class="text-light">
+                        <a href="#"><i class="fas fa-copyright text-light me-2"></i>2025_EVENT ORGANIZER</a>, All rights reserved.
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Copyright End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <!-- Bootstrap JS (for carousel) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

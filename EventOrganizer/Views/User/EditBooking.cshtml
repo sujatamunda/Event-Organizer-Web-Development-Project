@@ -1,0 +1,303 @@
+﻿@* @model EventOrganizer.Models.BookingViewModel
+
+@{
+    ViewBag.Title = "Edit Booking";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2 class="mb-4">Edit Booking</h2>
+
+<form asp-action="EditBooking" method="post" class="needs-validation" novalidate>
+
+    @* Hidden BookingId *@
+   @*  <input type="hidden" asp-for="BookingId" />
+
+   @*  <div class="mb-3">
+        <label asp-for="VenueName" class="form-label">Venue</label>
+        <input asp-for="VenueName" class="form-control" />
+
+
+        <span asp-validation-for="VenueName" class="text-danger"></span>
+    </div> *@
+
+   @*  <div>
+        <label asp-for="VenueName" class="block font-medium">Venue</label>
+        <select asp-for="VenueName" asp-items="Model.Venues" class="form-select w-full">
+            <option value="">-- Select Venue --</option>
+        </select>
+        <span asp-validation-for="VenueName" class="text-red-500"></span>
+    </div> *@
+   @*  <div class="form-group mb-3">
+        <label class="fw-bold">Event Name</label>
+        <input type="text" class="form-control" value="@Model.EventName" readonly />
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="form-label fw-bold">Current Venue</label>
+            <input type="text" class="form-control" value="@Model.VenueName" readonly />
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label fw-bold">Select New Venue (optional)</label>
+            @Html.DropDownListFor(m => m.VenueName, Model.Venues, "Select Venue", new { @class = "form-select" })
+        </div>
+    </div>
+ *@
+
+
+   @*  <div class="mb-3">
+        <label asp-for="SelectedLocation" class="form-label">Location</label>
+        <select asp-for="SelectedLocation" asp-items="Model.Locations" class="form-select">
+            <option value="">-- Select Location --</option>
+        </select>
+        <span asp-validation-for="SelectedLocation" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="EventDate" class="form-label">Event Date & Time</label>
+        <input asp-for="EventDate" type="datetime-local" class="form-control" />
+        <span asp-validation-for="EventDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Capacity" class="form-label">Capacity</label>
+        <input asp-for="Capacity" class="form-control" />
+        <span asp-validation-for="Capacity" class="text-danger"></span> *@
+   @*  </div>  *@
+
+   @*  <div class="mb-3">
+        <label asp-for="SelectedServiceName" class="form-label">Services</label>
+        <div class="mb-3">
+            
+            <div>
+                @foreach (var service in Model.Services)
+                {
+                    <div class="form-check">
+                        <input type="checkbox"
+                               class="form-check-input"
+                               name="SelectedServiceName"
+                               value="@service.Value"
+                        @(Model.SelectedServiceName != null && Model.SelectedServiceName.Contains(service.Value) ? "checked" : "") />
+                        <label class="form-check-label">@service.Text</label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="SelectedServiceName" class="text-danger"></span>
+        </div>
+
+        
+        <span asp-validation-for="SelectedServiceName" class="text-danger"></span>
+    </div>
+ *@
+
+
+@* 
+    <div class="mb-3">
+        <label class="form-label fw-bold">Services</label>
+
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#servicesDropdown" aria-expanded="false" aria-controls="servicesDropdown">
+                Select Services
+            </button>
+
+            <div class="collapse mt-2" id="servicesDropdown">
+                <div class="row">
+                    @foreach (var service in Model.Services)
+                    {
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                       name="SelectedServiceName"
+                                       value="@service.Value"
+                                @(service.Selected ? "checked" : "") />
+                                <label class="form-check-label">@service.Text</label>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div> *@
+
+   @*  <div class="mb-3">
+        <label class="form-label fw-bold">Description</label>
+        <textarea class="form-control" asp-for="Description" rows="3">@Model.Description</textarea>
+    </div> *@
+
+
+    @* <button type="submit" class="btn btn-primary">Save Changes</button>
+    <button type="button" class="btn btn-outline-danger" onclick="window.location.href='@Url.Action("Dashboard")'">Cancel</button>
+
+
+</form>
+
+@section Scripts {
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <script>
+        $(function () {
+            $("#EventDate").datepicker({
+                dateFormat: "yy-mm-dd",
+                minDate: 0
+            });
+
+            $("#SelectedLocation").change(function () {
+                var selectedLocation = $(this).val();
+                var selectedVenue = "@Model.VenueName"; // Razor syntax injects current value
+
+                $.ajax({
+                    url: '/User/GetVenuesByLocation',
+                    type: 'GET',
+                    data: { location: selectedLocation },
+                    success: function (data) {
+                        var venueDropdown = $("#VenueName");
+                        venueDropdown.empty();
+                        venueDropdown.append($('<option>', {
+                            value: "",
+                            text: "-- Select Venue --"
+                        }));
+                        $.each(data, function (i, venue) {
+                            venueDropdown.append($('<option>', {
+                                value: venue.value,
+                                text: venue.text,
+                                selected: venue.value === selectedVenue
+                            }));
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+ *@ 
+
+
+
+ @model EventOrganizer.Models.BookingViewModel
+
+@{
+    ViewBag.Title = "Edit Booking";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h2 class="mb-4 card-title text-center">Edit Booking</h2>
+
+        <form asp-action="EditBooking" method="post" class="needs-validation" novalidate>
+
+            @* Hidden BookingId *@
+            <input type="hidden" asp-for="BookingId" />
+
+            <div class="form-group mb-3">
+                <label class="fw-bold">Event Name</label>
+                <input type="text" class="form-control" value="@Model.EventName" readonly />
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Current Venue</label>
+                    <input type="text" class="form-control" value="@Model.VenueName" readonly />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Select New Venue (optional)</label>
+                    @Html.DropDownListFor(m => m.VenueName, Model.Venues, "Select Venue", new { @class = "form-select" })
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SelectedLocation" class="form-label">Location</label>
+                <select asp-for="SelectedLocation" asp-items="Model.Locations" class="form-select">
+                    <option value="">-- Select Location --</option>
+                </select>
+                <span asp-validation-for="SelectedLocation" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EventDate" class="form-label">Event Date & Time</label>
+                <input asp-for="EventDate" type="datetime-local" class="form-control" />
+                <span asp-validation-for="EventDate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Capacity" class="form-label">Capacity</label>
+                <input asp-for="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Services</label>
+
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#servicesDropdown" aria-expanded="false" aria-controls="servicesDropdown">
+                        Select Services
+                    </button>
+
+                    <div class="collapse mt-2" id="servicesDropdown">
+                        <div class="row">
+                            @foreach (var service in Model.Services)
+                            {
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox"
+                                               name="SelectedServiceName"
+                                               value="@service.Value"
+                                        @(service.Selected ? "checked" : "") />
+                                        <label class="form-check-label">@service.Text</label>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <button type="button" class="btn btn-outline-danger" onclick="window.location.href='@Url.Action("Dashboard")'">Cancel</button>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <script>
+        $(function () {
+            $("#EventDate").datepicker({
+                dateFormat: "yy-mm-dd",
+                minDate: 0
+            });
+
+            $("#SelectedLocation").change(function () {
+                var selectedLocation = $(this).val();
+                var selectedVenue = "@Model.VenueName"; // Razor syntax injects current value
+
+                $.ajax({
+                    url: '/User/GetVenuesByLocation',
+                    type: 'GET',
+                    data: { location: selectedLocation },
+                    success: function (data) {
+                        var venueDropdown = $("#VenueName");
+                        venueDropdown.empty();
+                        venueDropdown.append($('<option>', {
+                            value: "",
+                            text: "-- Select Venue --"
+                        }));
+                        $.each(data, function (i, venue) {
+                            venueDropdown.append($('<option>', {
+                                value: venue.value,
+                                text: venue.text,
+                                selected: venue.value === selectedVenue
+                            }));
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
+

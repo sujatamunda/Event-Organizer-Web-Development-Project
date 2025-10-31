@@ -1,0 +1,19 @@
+﻿@model EventOrganizer.Models.Events
+
+<form asp-action="EventEdit" method="post" class="p-3 border rounded shadow-sm">
+    <input type="hidden" asp-for="EventId" />
+
+    <div class="mb-2">
+        <label class="form-label">Event Name</label>
+        <input asp-for="EventName" class="form-control" placeholder="Enter Event Name" />
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">Description</label>
+        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Enter Event Description"></textarea>
+    </div>
+
+   
+
+    <button type="submit" class="btn btn-success mt-3">Update Event</button>
+</form>

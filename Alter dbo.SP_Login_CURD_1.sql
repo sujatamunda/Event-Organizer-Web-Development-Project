@@ -1,0 +1,1 @@
+﻿delete from Login where Id=3

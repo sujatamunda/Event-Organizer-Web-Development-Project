@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Payment Success";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="alert alert-success mt-5 text-center">
+    <h2>Payment Successful!</h2>
+    <p>Thank you for your booking. We’ve received your payment.</p>
+
+    <!-- Display the payment status -->
+    <p><strong>Payment Status:</strong> @Model.PaymentStatus</p>
+
+    <!-- Optionally, you can show more payment details -->
+    <p><strong>Amount Paid:</strong> @Model.Amount</p>
+    <p><strong>Transaction ID:</strong> @Model.TransactionId</p>
+</div>
+
+

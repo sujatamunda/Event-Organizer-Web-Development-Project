@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="container-fluid py-6">
+    <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Testimonial</small>
+            <h1 class="display-5 mb-5">What Our Customers Say!</h1>
+        </div>
+
+        <div class="owl-carousel owl-theme testimonial-carousel testimonial-carousel-1 mb-4 wow bounceInUp" data-wow-delay="0.1s">
+            @if (ViewBag.Reviews != null)
+            {
+                foreach (var review in (List<EventOrganizer.Models.ReviewTestimonial>)ViewBag.Reviews)
+                {
+                    <div class="testimonial-item rounded bg-light">
+                        <div class="d-flex mb-3">
+                            <img src="https://via.placeholder.com/150" class="img-fluid rounded-circle flex-shrink-0" alt="User">
+                            <div class="position-absolute" style="top: 15px; right: 20px;">
+                                <i class="fa fa-quote-right fa-2x"></i>
+                            </div>
+                            <div class="ps-3 my-auto">
+                                <h4 class="mb-0">@review.UserName</h4>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="d-flex">
+                                @{
+                                    for (int i = 1; i <= 5; i++)
+                                    {
+                                        if (i <= review.Rating)
+                                        {
+                                            <i class="fas fa-star text-primary"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="far fa-star text-primary"></i>
+                                        }
+                                    }
+                                }
+                            </div>
+                            <p class="fs-5 m-0 pt-3">@review.ReviewText</p>
+                            <small class="text-muted">@review.CreatedAt.ToString("dd MMM yyyy")</small>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="text-center text-muted">No reviews available.</div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        function approveReview(reviewId) {
+            $.ajax({
+                url: '/Review/ApproveReview',
+                type: 'POST',
+                data: { reviewId: reviewId },
+                success: function(response) {
+                    alert("Review Approved!");
+                    location.reload();  // Refresh the page
+                },
+                error: function() {
+                    alert("Error in approving review.");
+                }
+            });
+        }
+    </script>
+}
+

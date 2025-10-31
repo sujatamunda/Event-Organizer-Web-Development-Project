@@ -1,0 +1,86 @@
+﻿@model EventOrganizer.Models.Register
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+   
+  
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+<div class="card-body text-center">
+    <h4 class="mb-3 text-white">EVENT ORGANIZER</h4>
+    <h6 class="mb-3 text-white">Register</h6>
+            @using (Html.BeginForm("Register", "Login", FormMethod.Post, null))
+            {
+        <div class="form-group mb-3">
+                    @Html.TextBoxFor(a => a.FirstName, new { @class = "form-control", @placeholder = "First Name", @required = "required" })
+                    @Html.ValidationMessageFor(a => a.FirstName, null, new { @class = "text-danger" })
+                </div>
+
+        <div class="form-group mb-3">
+                    @Html.TextBoxFor(a => a.LastName, new { @class = "form-control", @placeholder = "Last Name", @required = "required" })
+                    @Html.ValidationMessageFor(a => a.LastName, null, new { @class = "text-danger" })
+                </div>
+
+        <div class="form-group mb-3">
+                    @Html.TextBoxFor(a => a.Email, new { @class = "form-control", @placeholder = "Email", @type = "email", @required = "required" })
+                    @Html.ValidationMessageFor(a => a.Email, null, new { @class = "text-danger" })
+                </div>
+
+        <div class="form-group mb-3">
+                    @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control", @placeholder = "Phone Number", @type = "tel", @required = "required" })
+                    @Html.ValidationMessageFor(a => a.PhoneNumber, null, new { @class = "text-danger" })
+                </div>
+
+        <div class="form-group mb-3">
+                    @Html.TextBoxFor(a => a.Address, new { @class = "form-control", @placeholder = "Address", @required = "required" })
+                    @Html.ValidationMessageFor(a => a.Address, null, new { @class = "text-danger" })
+                </div>
+
+        @* <div class="form-group mb-3">
+                    @Html.DropDownListFor(a => a.Gender, new List<SelectListItem>
+                {
+                new SelectListItem { Text = "Male", Value = "Male" },
+                new SelectListItem { Text = "Female", Value = "Female" },
+                new SelectListItem { Text = "Other", Value = "Other" }
+                }, "Select Gender", new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(a => a.Gender, null, new { @class = "text-danger" })
+                </div> *@
+
+        <div class="form-group mb-3">
+                    @Html.PasswordFor(a => a.Password, new { @class = "form-control", @placeholder = "Password", @required = "required" })
+                    @Html.ValidationMessageFor(a => a.Password, null, new { @class = "text-danger" })
+                </div>
+
+
+
+        <button type="submit" class="btn gradient-btn w-100">Register</button>
+
+                <div class="text-center mt-2">
+                    <a href="@Url.Action("Index", "Login")" class="text-white">Already have an account? Login</a>
+                </div>
+
+                @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMsg))
+                {
+                    <div class="row mt-3">
+                        <div class="col-12 bg-danger text-white text-center p-2">
+                            @ViewBag.ErrorMsg
+                        </div>
+                    </div>
+                }
+                @if (!string.IsNullOrWhiteSpace(ViewBag.SuccessMsg))
+                {
+                    <div class="row mt-3">
+                        <div class="col-12 bg-success text-white text-center p-2">
+                            @ViewBag.SuccessMsg
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

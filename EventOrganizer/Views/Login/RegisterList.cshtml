@@ -1,0 +1,52 @@
+﻿@model EventOrganizer.Models.Register
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "RegisterList";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h4>Home User Registration</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-responsive">
+            <thead>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>PhoneNumber</th>
+            <th>Address</th>
+            
+            <th>Password</th>
+            <th>UserType</th>
+            <th>Email</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.RegisterList)
+                {
+                    <tr>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.Address</td>
+                        @* <td>@item.Gender</td> *@
+                        <td>@item.Password</td>
+                        <td>@item.UserType</td>
+                        <td>@item.Email</td>
+                        <td>
+                            <a class="btn-warning btn-sm" href="~/Login/Register?id=@item.UserId">Edit</a>
+                            <a class="btn-danger btn-sm" href="~/Login/RegisterDelete?id=@item.UserId">Delete</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,2 @@
+﻿ALTER TABLE Bookings
+DROP COLUMN Venues;

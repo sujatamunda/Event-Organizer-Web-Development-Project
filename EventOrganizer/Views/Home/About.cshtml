@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_Common.cshtml";
+}
+<!-- Hero Section -->
+<div class="container-fluid bg-light py-5 mb-5">
+    <div class="container text-center wow fadeInDown">
+        <h1 class="display-1 mb-3 text-primary">About Us</h1>
+        <nav>
+            <ol class="breadcrumb justify-content-center mb-0">
+                @* <li class="breadcrumb-item"><a href="#">Home</a></li> *@
+                <li class="breadcrumb-item">
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+
+                <li class="breadcrumb-item active text-dark">About</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Who We Are Section -->
+<div class="container py-5">
+    <div class="row g-5 align-items-center">
+        <div class="col-lg-6 wow zoomIn" data-wow-delay="0.2s">
+            <img src="~/Images/WeddingPlanners.png" class="img-fluid rounded shadow-lg" style="object-fit: cover;" />
+        </div>
+        <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
+            <h2 class="mb-4 text-primary">We Create Experiences, Not Just Events</h2>
+            <p class="text-justify">
+                Our event management service goes beyond simply organizing—it's about crafting unforgettable memories.
+                From weddings to corporate galas, cultural festivals to themed parties, we are your partners in designing moments that matter.
+            </p>
+            <ul class="list-unstyled text-dark">
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Personal Event Managers</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Stunning Venue Recommendations</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Affordable & Transparent Packages</li>
+            </ul>
+            <a class="btn btn-outline-primary mt-3 px-4 py-2 rounded-pill">Know More</a>
+        </div>
+    </div>
+</div>
+
+<!-- Mission & Vision Section -->
+<div class="container-fluid bg-light py-6">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-md-6 wow fadeInLeft" data-wow-delay="0.3s">
+                <h3 class="text-primary mb-3">Our Mission</h3>
+                <p>
+                    To empower our clients with seamless event solutions that reflect their vision, values, and personality. We aim to make every celebration meaningful and magical.
+                </p>
+            </div>
+            <div class="col-md-6 wow fadeInRight" data-wow-delay="0.3s">
+                <h3 class="text-primary mb-3">Our Vision</h3>
+                <p>
+                    To be the most trusted and innovative event management company, celebrated for setting new standards in quality, creativity, and client satisfaction.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gallery Section (Static) -->
+<div class="container py-5">
+    <div class="text-center mb-5 wow fadeInUp">
+        <h2 class="text-primary">Our Captured Moments</h2>
+        <p>Snapshots from some of our best organized events</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-4 wow zoomIn">
+            <img src="~/Images/garden2.jpg" class="img-fluid rounded shadow-sm" alt="Event 1" />
+        </div>
+        <div class="col-md-4 wow zoomIn">
+            <img src="~/Images/mountain.jpg" class="img-fluid rounded shadow-sm" alt="Event 2" />
+        </div>
+        <div class="col-md-4 wow zoomIn">
+            <img src="~/Images/destination3.jpg" class="img-fluid rounded shadow-sm" alt="Event 3" />
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container py-6">
+    <div class="text-center mb-5 wow fadeInUp">
+        <h2 class="text-primary">Why Choose Us?</h2>
+        <p>Discover what makes us the preferred choice for 200+ clients across the region.</p>
+    </div>
+    <div class="row g-4 text-center">
+        <div class="col-sm-6 col-lg-3 wow bounceIn" data-wow-delay="0.1s">
+            <div class="p-4 bg-white shadow rounded">
+                <i class="fas fa-shipping-fast fa-2x text-primary mb-3"></i>
+                <h5>Fast Setup</h5>
+                <p>Quick turnarounds, seamless setup, and on-time delivery.</p>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 wow bounceIn" data-wow-delay="0.2s">
+            <div class="p-4 bg-white shadow rounded">
+                <i class="fas fa-headset fa-2x text-primary mb-3"></i>
+                <h5>24/7 Support</h5>
+                <p>We’re with you every step of the way—day or night.</p>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 wow bounceIn" data-wow-delay="0.3s">
+            <div class="p-4 bg-white shadow rounded">
+                <i class="fas fa-sliders-h fa-2x text-primary mb-3"></i>
+                <h5>Customization</h5>
+                <p>Tailor every detail to match your taste and style.</p>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 wow bounceIn" data-wow-delay="0.4s">
+            <div class="p-4 bg-white shadow rounded">
+                <i class="fas fa-smile-beam fa-2x text-primary mb-3"></i>
+                <h5>Happy Clients</h5>
+                <p>Over 200 satisfied customers with glowing reviews.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="container-fluid bg-primary text-white text-center py-5 mt-5 wow fadeInUp">
+    <h2 class="display-6 mb-3">Ready to Plan Your Next Event?</h2>
+    <p class="mb-4">Let us turn your dream event into a reality. Contact us today to get started!</p>
+    <a href="#" class="btn btn-light rounded-pill px-5 py-2">Get in Touch</a>
+</div>
